@@ -1,0 +1,192 @@
+--[[------------------------------------------------------------------------------------------------------------------
+Управление скриптовыми зонами
+Чугай Саша
+--------------------------------------------------------------------------------------------------------------------]]
+
+module("script_zone")
+module("smart_terrain")
+module("zone_spawner")
+module("escape_raid")
+module("xr_zones_sound")
+
+local ini, r
+
+----------------------------------------------------------------------------------------------------------------------
+-- класс zone_binder. Он контролирует скриптовую зону, подключает различные классы управления зоной.
+----------------------------------------------------------------------------------------------------------------------
+class "zone_binder" ( object_binder )
+
+function zone_binder:__init( obj ) super( obj )
+end
+
+function zone_binder:reinit()
+	object_binder.reinit( self )
+end
+
+function zone_binder:net_spawn( server_object )
+	r = object_binder.net_spawn( self, server_object )
+	self.object:set_callback( self, "on_enter", true )
+	self.object:set_callback( self, "on_leave", false )
+
+	self.managers = {}
+
+	ini = self.object:spawn_ini()
+
+	if not ini then
+		return r
+	end
+
+	if ini:section_exist( "gulag1" ) then
+		if self.object:clsid() == clsid.smart_terrain then
+			if alife() then
+				self.managers.cl_smart_terrain = smart_terrain.cl_smart_terrain( server_object, ini )
+			else
+				printf( "No simulation! SMART_TERRAIN %s disabled.", self.object:name() )
+			end
+		else
+			utils.abort( "You must use SMART_TERRAIN instead of SCRIPT_ZONE %s", self.object:name() )
+		end
+	end
+
+	if ini:section_exist( "sound" ) then
+		self.managers.zone_sound = xr_zones_sound.zone_sound( self.object, ini )
+		if not self.managers.zone_sound.ini_ok then
+			utils.abort( "'sound' manager NOT initialized" )
+		end
+	end
+
+	if ini:section_exist( "monster" ) then
+		self.managers.monster = script_zone.monster_zone( self.object, ini )
+		if not self.managers.monster.ini_ok then
+			utils.abort( "'monster' manager NOT initialized" )
+		end
+	end
+
+	if ini:section_exist( "zone_spawner" ) then
+		self.managers.z_spawner = zone_spawner.zone_spawner( self.object, ini )
+		if not self.managers.z_spawner.ini_ok then
+			utils.abort( "'zone_spawner' manager NOT initialized" )
+		end
+	end
+
+	if ini:section_exist( "escape_raid" ) then
+		self.managers.factory = escape_raid.escape_raid( self.object, ini )
+		if not self.managers.factory.ini_ok then
+			utils.abort( "'escape_raid' manager NOT initialized" )
+		end
+		escape_raid.zone = self.managers.factory
+	end
+  
+	if ini:section_exist( "spawner" ) then
+		xr_spawner.create_spawner()
+		self.managers.spawner = xr_spawner.spawner
+	end
+
+	if ini:section_exist( "tips" ) then
+		if ini:line_exist("tips", "name") then
+			local distance = 2
+			if 	ini:line_exist("tips", "distance") then
+				distance = ini:r_s32("tips", "distance")
+			end
+			local type = nil
+			if 	ini:line_exist("tips", "type") then
+				type = ini:r_string("tips", "type")
+			end
+			local sender = nil
+			if 	ini:line_exist("tips", "sender") then
+				sender = ini:r_string("tips", "sender")
+			end
+			
+			level_tips.fill_tips(self.object, 
+								ini:r_string("tips", "name"), 
+								distance,
+								type,
+								sender,
+								xr_logic.cfg_get_condlist(ini,"tips","conditions",self.object))
+		end
+	end
+
+	if ini:section_exist("no_weapon") then
+		self.managers.no_weapon = CZoneNotWeapon(self.object)
+	end
+
+	return r
+end
+
+function zone_binder:net_destroy()
+	self.object:clear_callback( true )
+	self.object:clear_callback( false )
+
+	table.foreach( self.managers, function( k, v ) if v.destroy then v:destroy() end end )
+
+	object_binder.net_destroy( self )
+end
+
+function zone_binder:net_save_relevant()
+	-- для smart terrain - да, для обычной скриптовой зоны - нет
+	return self.object:clsid() == clsid.smart_terrain
+end
+
+function zone_binder:save( packet )
+	printf( "zone binder save" )
+	object_binder.save( self, packet )
+
+	table.foreach( self.managers, function( k, v ) if v.save then v:save( packet ) end end )
+end
+
+function zone_binder:load( packet )
+	printf( "zone binder load" )
+	object_binder.load( self, packet )
+end
+
+function zone_binder:update( delta )
+	object_binder.update( self, delta )
+
+	table.foreach( self.managers, function( k, v ) if v.update then v:update() end end )
+end
+
+function zone_binder:reload( section )
+	object_binder.reload( self, section )
+end
+
+-- callback на вход в зону
+function zone_binder:on_enter( zone, obj )
+	printf( "[zone %s] on_enter obj=%s, clsid=%s", zone:name(), obj:name(), obj:clsid() )
+
+	-- вызвать callback-и всех подключённых классов управления
+	table.foreach( self.managers, function( k, v ) if v.on_enter then v:on_enter( obj ) end end )
+end
+
+-- callback на выход из зоны
+function zone_binder:on_leave( zone, obj )
+	printf( "[zone %s] on_leave obj=%s", zone:name(), obj:name() )
+
+	-- вызвать callback-и всех подключённых классов управления
+	table.foreach( self.managers, function( k, v ) if v.on_leave then v:on_leave( obj ) end end )
+end
+
+
+----------------------------------------------------------------------------------------------------------------------
+-- Класс CZoneNotWeapon. При входе игрока в зону, у него убирается оружие. При выходы - достается
+----------------------------------------------------------------------------------------------------------------------
+class "CZoneNotWeapon"
+function CZoneNotWeapon:__init(zone_object)
+	// Если уже есть актер и он в зоне, то убераем оружие
+	if( level.actor() and 
+	    zone_object:active_zone_contact(level.actor():id())
+	   ) then
+		level.actor():hide_weapon()
+	end
+end
+
+function CZoneNotWeapon:on_enter(obj)
+	if(obj:id() == get_actor_id()) then
+		obj:hide_weapon()
+	end
+end
+
+function CZoneNotWeapon:on_leave(obj)
+	if(obj:id() == get_actor_id()) then
+		obj:restore_weapon()
+	end
+end

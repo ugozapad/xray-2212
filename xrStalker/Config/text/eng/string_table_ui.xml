@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="Local Map">
+        <text>Local map</text>
+    </string>
+    <string id="Global Map">
+        <text>Global map</text>
+    </string>
+    <string id="cant_walk">
+        <text>Too exhausted to go</text>
+    </string>
+    <string id="tip_door_locked">
+        <text>Door is locked</text>
+    </string>
+    <string id="tip_door_open">
+        <text>Press `E` to open the door</text>
+    </string>
+    <string id="tip_door_close">
+        <text>Press `E` to close the door</text>
+    </string>
+</string_table>

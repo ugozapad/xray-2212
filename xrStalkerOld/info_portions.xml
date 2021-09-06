@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding="windows-1251"?>
+
+<game_information_portions>
+  <info_portion id="storyline_actor_start">
+    <task>storyline_eliminate_gunslinger</task>
+    <article>storyline_gunslinger</article>
+  </info_portion>
+
+  <info_portion id="global_dialogs">
+    <dialog>actor_break_dialog</dialog>
+    <dialog>actor_help_wounded</dialog>
+  </info_portion>
+
+
+  <info_portion id="encyclopedy">
+  <article>social_stalker-clans_gunslinger-clan</article>
+  <article>weapons1_ammo_ammo-9x18-fmj</article>
+  <article>weapons1_ammo_ammo-9x18-pmm</article>
+  <article>weapons1_ammo_ammo-9x18-pbp</article>
+  <article>weapons1_ammo_ammo-9x19-fmj</article>
+  <article>weapons1_ammo_ammo-9x19-pbp</article>
+  <article>weapons1_ammo_ammo-11.43x23-fmj</article>
+  <article>weapons1_ammo_ammo-11.43x23-hydro</article>
+  <article>weapons1_ammo_ammo-5.45x39-fmj</article>
+  <article>weapons1_ammo_ammo-5.45x39-ap</article>
+  <article>weapons1_ammo_ammo-9x39-pab9</article>
+  <article>weapons1_ammo_ammo-9x39-ap</article>
+  <article>weapons1_ammo_ammo-9x39-sp5</article>
+  <article>weapons1_ammo_ammo-5.56x45-ss190</article>
+  <article>weapons1_ammo_ammo-5.56x45-ap</article>
+  <article>weapons1_ammo_ammo-7.62x54-7h1</article>
+  <article>weapons1_ammo_ammo-7.62x54-ap</article>
+  <article>weapons1_ammo_ammo-7.62x54-7h14</article>
+  <article>weapons1_ammo_ammo-12x70-buck</article>
+  <article>weapons1_ammo_ammo-12x76-zhekan</article>
+  <article>weapons1_ammo_ammo-12x76-dart</article>
+  <article>weapons1_ammo_ammo-m209</article>
+  <article>weapons1_ammo_ammo-vog-25</article>
+  <article>weapons1_ammo_ammo-vog-25p</article>
+  <article>weapons1_ammo_ammo-og-7b</article>
+  <article>weapons1_ammo_ammo-gauss</article>
+  <article>weapons1_wpn-pm</article>
+  <article>weapons1_wpn-pb</article>
+  <article>weapons1_wpn-fort</article>
+  <article>weapons1_wpn-hpsa</article>
+  <article>weapons1_wpn-walther</article>
+  <article>weapons1_wpn-beretta</article>
+  <article>weapons1_wpn-colt1911</article>
+  <article>weapons1_wpn-usp</article>
+  <article>weapons1_wpn-desert-eagle</article>
+  <article>weapons1_wpn-toz34</article>
+  <article>weapons1_wpn-bm16</article>
+  <article>weapons1_wpn-spas12</article>
+  <article>weapons1_wpn-mp5</article>
+  <article>weapons1_wpn-ak74</article>
+  <article>weapons1_wpn-ak74u</article>
+  <article>weapons1_wpn-vintorez</article>
+  <article>weapons1_wpn-val</article>
+  <article>weapons1_wpn-groza</article>
+  <article>weapons1_wpn-lr300</article>
+  <article>weapons1_wpn-fn2000</article>
+  <article>weapons1_wpn-l85</article>
+  <article>weapons1_wpn-svd</article>
+  <article>weapons1_wpn-svu</article>
+  <article>weapons1_wpn-gauss</article>
+  <article>weapons1_wpn-addon-grenade-launcher</article>
+  <article>weapons1_wpn-addon-grenade-launcher-m203</article>
+  <article>weapons1_wpn-rg-6</article>
+  <article>weapons1_wpn-rpg7</article>
+  <article>weapons1_grenade-f1</article>
+  <article>weapons1_grenade-rgd5</article>
+  <article>zone_artifact_af-medusa</article>
+  <article>zone_artifact_af-cristall-flower</article>
+  <article>zone_artifact_af-night-star</article>
+  <article>zone_artifact_af-vyvert</article>
+  <article>zone_artifact_af-gravi</article>
+  <article>zone_artifact_af-gold-fish</article>
+  <article>zone_artifact_af-blood</article>
+  <article>zone_artifact_af-mincer-meat</article>
+  <article>zone_artifact_af-soul</article>
+  <article>zone_artifact_af-drops</article>
+  <article>zone_artifact_af-fireball</article>
+  <article>zone_artifact_af-cristall</article>
+  <article>zone_artifact_af-electra-sparkler</article>
+  <article>zone_artifact_af-electra-flash</article>
+  <article>zone_artifact_af-electra-moonlight</article>
+  <article>zone_artifact_af-rusty-thorn</article>
+  <article>zone_artifact_af-rusty-kristall</article>
+  <article>zone_artifact_af-rusty-sea-urchin</article>
+  <article>zone_artifact_af-fuzz-kolobok</article>
+  <article>zone_artifact_af-ameba-slime</article>
+  <article>zone_artifact_af-ameba-slug</article>
+  <article>zone_artifact_af-ameba-mica</article>
+  <article>zone_artifact_af-dummy-glassbeads</article>
+  <article>zone_artifact_af-dummy-pellicle</article>
+  <article>zone_artifact_af-dummy-battery</article>
+  <article>zone_artifact_af-dummy-dummy</article>
+  <article>zone_artifact_af-dummy-spring</article>
+  <article>zone_anomalies_bald</article>
+  <article>zone_anomalies_gravi</article>
+  <article>zone_anomalies_meat</article>
+  <article>zone_anomalies_zharka</article>
+  <article>zone_anomalies_electra</article>
+  <article>zone_anomalies_rusty</article>
+  <article>zone_anomalies_fuzz</article>
+  <article>zone_anomalies_radioactive</article>
+  <article>zone_anomalies_ameba</article>
+  <article>zone_anomalies_time</article>
+  <article>zone_anomalies_lift</article>
+  <article>zone_locations_escape</article>
+  <article>zone_locations_garbage</article>
+  <article>zone_locations_agroprom</article>
+  <article>zone_locations_darkdolina</article>
+  <article>zone_locations_darklab</article>
+  <article>zone_locations_bar</article>
+  <article>zone_locations_rostok</article>
+  <article>zone_locations_yantar</article>
+  <article>zone_locations_military-loc</article>
+  <article>zone_locations_deadcity</article>
+  </info_portion>
+  
+  
+  <!-- special info portion that sends to actor when it
+    use in-game UI (PDA, Inventory, etc)-->
+    
+    <info_portion id="ui_pda">
+		<disable>ui_pda_hide</disable>
+    </info_portion>
+    <info_portion id="ui_pda_hide">
+		<disable>ui_pda</disable>
+    </info_portion>
+          
+   <info_portion id="ui_pda_contacts"></info_portion>
+   <info_portion id="ui_pda_contacts_hide"></info_portion>
+   
+   <info_portion id="ui_pda_map_local"></info_portion>
+   <info_portion id="ui_pda_map_global"></info_portion>
+   
+   <info_portion id="ui_pda_news"></info_portion>
+   <info_portion id="ui_pda_news_hide"></info_portion>
+   
+   <info_portion id="ui_pda_jobs_failed"></info_portion>
+   <info_portion id="ui_pda_jobs_accomplished"></info_portion>
+   <info_portion id="ui_pda_jobs_current"></info_portion>
+   
+    <info_portion id="ui_pda_jobs">
+		<disable>ui_pda_jobs_hide</disable>
+    </info_portion>
+    <info_portion id="ui_pda_jobs_hide">
+		<disable>ui_pda_jobs</disable>
+    </info_portion>
+
+   
+   <info_portion id="ui_pda_contracts"></info_portion>
+   
+   <info_portion id="ui_pda_diary"></info_portion>
+   <info_portion id="ui_pda_diary_hide"></info_portion>
+      
+   
+   <info_portion id="ui_pda_encyclopedia"></info_portion>
+   <info_portion id="ui_pda_encyclopedia_hide"></info_portion>
+   
+   <info_portion id="ui_pda_actor_info"></info_portion>
+   <info_portion id="ui_pda_ranking"></info_portion>
+   <info_portion id="ui_pda_events"></info_portion>
+   
+   <info_portion id="ui_inventory">
+		<disable>ui_inventory_hide</disable>
+   </info_portion>
+   <info_portion id="ui_inventory_hide">
+		<disable>ui_inventory</disable>
+   </info_portion>
+
+
+</game_information_portions>

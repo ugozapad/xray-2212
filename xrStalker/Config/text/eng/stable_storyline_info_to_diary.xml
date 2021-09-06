@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="storyline_fox_flash_info">
+        <text>Restricted.\nTo: Leader, “THRUTH” project \nKGB colonel V.М. Kruchelnikov \nFrom: Commander, «Search-2» group, \ncaptain D.F. Maksimenko \n\nReport.\n\nIn period from 12.05.2012 to 25.05.2012 our group incorporating with KGB task force section has been inspecting the facilities of  former “Agroprom” research institute, which researched the problem of farming on lands contaminated  with radioactivity. The very first inspections draw suspicion upon their non-farming activities of the last 2-3 years before the “X” day. \nFurther worse, the first part of collected materials was sent under the escort to Dytyatky army post on May, 16th, but according to the information provided by army post commander lieutenant V.P. Chuguykin no one came for that data. Radio communication with the center is unstable and recently because of the increasing Zone activity communication service is out at all.. We don’t send any other Agroprom materials as the remaining group is reluctant to be split. During the delivery of first part of collected materials two soldiers of the escort died: sergeant R.D. Dubko and ensign K.P. Ivanets. We couldn’t fetch the bodies, since all the bodies were missing. \nColonel, sir, I insistently demand on considering this situation. With all the proper respect sir, we’re at the breaking point. My people are  dying and no one has any mere dealings with  us and our tasks!!!. Where a hell is that damn group of military stalkers I was promised? Or our replacement? Where are the promised air support and rations?!!! For what damn reason an antique tank without any fuel or ammunition was sent here? Yes, it has arrived, inane wonder of engineering… Mutants jeer at it… Stop teasing us!!!.. If the situation doesn’t change, I’ll take my men away from the Zone on my own… Got that?\n\n28.05.2012.                                           KGB captain Maksimenko D.F.</text>
+    </string>
+
+    <string id="storyline_seriy_flash_info">
+        <text>Received from Bugay: \n
+		Seriy, I found out that Mole's grouping has gone towards Agroprom's factory. Searching for Gunslinger's cache, want to become familiar with his trip to the North. Supposed to know the rough cache place. Will camp on the gactory during the search. So, the point is that you are wandering nearby - go chat with them. You're a communicative person indeed - so outtalk them to give you information. Huh?
+		\n \n
+		Send to Bugay: \n
+		Bull, listen, I won't peep there readily. Militaries are fumbling in there. I don't wanna have a bullet and all. However, I understand they'll get back to the Bar later on. And I'm gonna camp in Garage on the Dump. Got a task from scientists for bloodsuckers' heads. So, when it is comming back - I'll manage to intercept them.
+		</text>
+    </string>
+
+    <string id="storyline_gunslinger_cache_info">
+    	<text>Пойдёшь по отметке на карте и найдёшь в подземелье тайник
+    	</text>
+    </string>
+
+	<string id="storyline_gunslinger_flash_info">
+		<text>Received from Phantom: \n
+		\n
+		Gunslinger, I've got very disappointing news. Fang has perished. We were ambushed at the village near the depots. And in my opinion they were waiting for a long time. Threesome. Looked like usual neutrals. Fang smelled them somehow. You know about his keen scent. Two of them were killed - obviously they were total newbies, and the third one appeared to be much more clever - camped in 100 meters with Screw-gun. So Fang is gone. So only two of has can go to the Center next time. And there is more: Those two had our description. I don't have a tiny clue who ever said that. Though many have grudge against us. The third is gone. One of the free lancers to my mind. Heavy scar on the face. Bright eyes. I'll try to find him. \n
+		That's the way the cookie crumbles. Good luck and watch out. \n
+		Phantom \n
+		\n
+		To Phantom \n
+		\n
+		"Hi mate. \n
+		I leave an info for ye. That's the way to get in touch. I've noticed somebody shadowed. \n
+		Dude, I'm gone to the North: to where we've been: I'll try to get through myself: Sorry, but I don't have enough time for that: Explain later. \n
+		And that moron, who killed Fang will regret the day when he was born... I'm irritated... You'd inquire about who is he, and I'll be back soon, we'll see to it. \n
+		Meet at our common friend. You know who's he and where he is. :) \n
+		Good luck. \n
+		Gunslinger" \n
+		\n
+		To Gunslinger. \n
+		\n
+		"Hello. Been there. Haven't met you. Your trip to the center alone was all for nothing. Although that's not the point. Where and at whom I should look for you is most certainly familiar :) \n
+		Phantom"
+		</text>
+	</string>
+</string_table>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="Zone">
+        <text>Zone</text>
+    </string>
+    <string id="Artifacts">
+        <text>Artifacts</text>
+    </string>
+    <string id="af-medusa">
+        <text>Medusa </text>
+    </string>
+    <string id="enc_zone_artifact_af-medusa">
+        <text>Artifact generated in “Trigger” anomaly. Constitutes of pressed plants remainings (freaky curved by heavy gravity), soil and generally everything that hits upon the immediate proximity to the anomaly. Wearing the artifact on the belt increases the immunity to the “operating” gravity anomalies like “Vortex” and “Whirligig”, also has an impact as the defence field, reducing the damage from the shooting weapons. Slightly radioactive. The cost is low because of rather high prevalence.</text>
+    </string>
+    <string id="af-cristall-flower">
+        <text>Stone flower</text>
+    </string>
+    <string id="enc_zone_artifact_af-cristall-flower">
+        <text>Artifact generated in “Trigger” anomaly. Fine excrescence with the mirror surface and yellow-red insertions. Constitutes of pressed plants remnants (freaky curved by heavy gravity), soil and generally everything that hits upon the immediate proximity to the anomaly. Wearing the artifact on the belt increases the immunity to the “operating” gravity anomalies like “Vortex” and “Whirligig”, also has an impact as the defence field, reducing the damage from the shooting weapons. Radioactive. The cost and appearance probability – medium. Scientific organizations, collectors and jewellers are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-night-star">
+        <text>Night star</text>
+    </string>
+    <string id="enc_zone_artifact_af-night-star">
+        <text>Artifact occasionally generated in “Trigger” anomaly. Fine excrescence with the mirror surface and color phosphorescing insertions. At night it illuminates everything around itself in 1-2 metres radius, for which it received such a name within stalkers. Constitutes of pressed plants remnants (freaky curved by heavy gravity), soil and generally everything that hits upon the immediate proximity to the anomaly. Wearing the artifact on the belt greatly increases the immunity to the “operating” gravity anomalies like “Vortex” and “Whirligig”, also has an impact as the defence field, reducing the damage from the shooting weapons. While it is highly radioactive, thus continuous bearing is contra-indicated. Appearance probability – medium. Cost – extremely high. Scientific organizations, militaries are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-vyvert">
+        <text>Twist</text>
+    </string>
+    <string id="enc_zone_artifact_af-vyvert">
+        <text>Artifact generated in “Vortex” anomaly. Constitutes of pressed plants remnants (freaky curved by heavy gravity), soil and generally everything that hits upon the immediate proximity to the anomaly. Wearing the artifact on the belt increases the immunity to the “shock” gravity anomalies like “Trigger”. The cost is low because of rather high prevalence. Scientific organizations are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-gravi">
+        <text>Gravity</text>
+    </string>
+    <string id="enc_zone_artifact_af-gravi">
+        <text>Fine artifact generated in “Vortex” anomaly. Constitutes of pressed plants remnants (freaky curved by heavy gravity), soil and generally everything that hits upon the immediate proximity to the anomaly. Wearing the artifact on the belt increases the immunity to the “shock” gravity anomalies like “Trigger”. The cost and appearance probability – medium. Scientific organizations, collectors and jewellers are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-gold-fish">
+        <text>Gold Fish</text>
+    </string>
+    <string id="enc_zone_artifact_af-gold-fish">
+        <text>Artifact occasionally generated in “Vortex” anomaly. Fine excrescence with the mirror surface. At night it illuminates everything around itself in 1-2 metres radius. Constitutes of pressed plants remnants (freaky curved by heavy gravity), soil and generally everything that hits the anomaly upon the “discharging” moment. Wearing the artifact on the belt increases the immunity to the “shock” gravity anomalies like “Trigger”, but this damn thing due to its gravitational field draws bullets, which isn’t causing joy to its owner. Cost – extremely high. Scientific organizations, collectors and jewellers are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-blood">
+        <text>Stone Blood</text>
+    </string>
+    <string id="enc_zone_artifact_af-blood">
+        <text>Artifact generated in “Whirligig” anomaly. Constitutes of ugly red excrescence formed by pressed freaky curved and polymerized plants remnants, soil and bones. Bearing this artifact on the belt speeds up the wounds healing and stops bleeding in some mystic way. Popular belief is spread among stalkers that this artifact contains the power of people who died in this anomaly. Although, this artifact attracts predators to its bearer. The cost isn’t high because of rather rather high prevalence. Scientific organizations, medics first of all and various religious cults show great interest in this artifact.</text>
+    </string>
+    <string id="af-mincer-meat">
+        <text>Meat Loaf</text>
+    </string>
+    <string id="enc_zone_artifact_af-mincer-meat">
+        <text>Artifact generated in “Whirligig” anomaly. Constitutes of ugly or excrescence formed by pressed freaky curved and polymerized plants remnants, soil and bones. Bearing this artifact on the belt speeds up the wounds healing and stops bleeding in some mystic way. Popular belief is spread among stalkers that this artifact contains the power of people who died in this anomaly. Although, this artifact attracts predators to its bearer. The cost and the appearance probability - medium. Scientific organizations, medics first of all and various religious cults show great interest in this artifact.</text>
+    </string>
+    <string id="af-soul">
+        <text>Soul</text>
+    </string>
+    <string id="enc_zone_artifact_af-soul">
+        <text>Rare artifact generated in “Whirligig” anomaly. Constitutes of yellow-red shining excrescence formed by pressed freaky curved and polymerized plants remnants, soil and bones. Popular belief is spread among stalkers that this artifact contains the power of people who died in this anomaly. Bearing this artifact on the belt rejuvenates the health to its maximum and stops all the bleedings. Although, it lowers endurance and monsters with telepathic ability psi attack resistance. Also stalkers note an important fact – wearing this artifact on the belt causes constant hunger. The cost is extremely high. Appearance probability – low. Scientific organizations, medics first of all and various religious cults show great interest in this artifact.</text>
+    </string>
+    <string id="af-drops">
+        <text>Drops</text>
+    </string>
+    <string id="enc_zone_artifact_af-drops">
+        <text>Artifact generated by “Fryer” anomaly. Tear-shaped excrescences with chapped glossy surface. Stalkers say that bearing this artifact reduces the damage from brutes bites. Worsen the endurance. Cost isn’t high. Collectors and jewellers show interest in this artifact.\n </text>
+    </string>
+    <string id="af-fireball">
+        <text>Fireball</text>
+    </string>
+    <string id="enc_zone_artifact_af-fireball">
+        <text>Artifact generated in “Fryer” anomaly. Translucent red excrescence of a globe shape. Stalkers say that bearing this artifact reduces the damage from brutes’ bites. Worsen the endurance. The cost is average. Collectors and jewellers are deeply interested in this artifact.</text>
+    </string>
+    <string id="af-cristall">
+        <text>Crystal</text>
+    </string>
+    <string id="enc_zone_artifact_af-cristall">
+        <text>Artifact generated by the “Fryer” anomaly. Its name precisely describes the artifact’s shape – big red shining crystal. Stalkers claim that bearing this artifact scares away several mutants and noticeably reduces damage from brutes’ bites. Alas, this artifact hazardously impacts the endurance. Although, it’s better not to come close to the fires with this artifact. The cost is extremely high. Appearance probability – low. Scientific organizations are greatly interested in this artifact.</text>
+    </string>
+    <string id="af-electra-sparkler">
+        <text>Sparkler</text>
+    </string>
+    <string id="enc_zone_artifact_af-electra-sparkler">
+        <text>Artifact generated by “Electra” anomaly. Translucent amorphous excrescence which \ngenerates small lightnings-sparkles around it time to time. Bearing this artifact on the belt increases endurance. Cost is low. Scientific organizations, collecors and jewellers show interest in this artifact.</text>
+    </string>
+    <string id="af-electra-flash">
+        <text>Flash</text>
+    </string>
+    <string id="enc_zone_artifact_af-electra-flash">
+        <text>Artifact generated by “Electra” anomaly. Translucent amorphous excrescence with spruting light beams from within and generating small lightnings-sparkles around it time to time. Bearing the artifact on the belt slightly increases the endurance. Cost is average. Scientific organizations, collectors and jewellers are fascinated with it.</text>
+    </string>
+    <string id="af-electra-moonlight">
+        <text>Moonlight</text>
+    </string>
+    <string id="enc_zone_artifact_af-electra-moonlight">
+        <text>Artifact generated by “Electra” anomaly. Translucent amorphous excrescence with glittering core, which generates small lightnings-sparkles around it time to time. Bearing the artifact on the belt noticeably increases the endurance. But any even the weakest “Electra” anomaly becomes mortally dangerous. Radioactive. Cost is high. Scientific organizations, collectors and jewellers show interest in it.</text>
+    </string>
+    <string id="af-rusty-thorn">
+        <text>Thorn</text>
+    </string>
+    <string id="enc_zone_artifact_af-rusty-thorn">
+        <text>Artifact generated by “Rusty hair” anomaly. Bearing it on the belt slightly increases person’s psi defence. Cost is low. Scientific organizations, collectors and jewellers show interest in it.</text>
+    </string>
+    <string id="af-rusty-kristall">
+        <text>Crystal Thorn</text>
+    </string>
+    <string id="enc_zone_artifact_af-rusty-kristall">
+        <text>Artifact generated by “Rusty Hair” anomaly. Bearing it on the belt increases person’s psi defence. Cost is average. Scientific organizations, collectors and jewellers show interest in it.</text>
+    </string>
+    <string id="af-rusty-sea-urchin">
+        <text>See Urchin</text>
+    </string>
+    <string id="enc_zone_artifact_af-rusty-sea-urchin">
+        <text>Artifact generated by “Rusty hair” anomaly. Bearing it on the belt noticeably increases person’s psi defence. When activating by throwing becomes bouncing needle-mine. Cost is high. Scientific organizations, collectors and jewellers show interest in it.</text>
+    </string>
+    <string id="af-fuzz-kolobok">
+        <text>Kolobok</text>
+    </string>
+    <string id="enc_zone_artifact_af-fuzz-kolobok">
+        <text>Artifact generated by “Fuzz” anomaly. Bearing it on the belt noticeably increases person’s organism resistance to the radiation. Although, it’s better not to come too close to the artifact’s “parent” – damage will be repeatedly increased. Cost is high. Scientific organizations, firstly medics are interested in it.</text>
+    </string>
+    <string id="af-ameba-slime">
+        <text>Slime</text>
+    </string>
+    <string id="enc_zone_artifact_af-ameba-slime">
+        <text>Artifact generated by “Slush” anomaly. Translucent or excrescence. Bearing artifact on the belt slightly reduce damage from anomalies “Rusty Hair” and “Fuzz” and slightly scares predators away. Cost is low. Scientific organizations show interest in it.</text>
+    </string>
+    <string id="af-ameba-slug">
+        <text>Slug</text>
+    </string>
+    <string id="enc_zone_artifact_af-ameba-slug">
+        <text>Artifact generated by “Slush” anomaly. Translucent or excrescence. Bearing artifact on the belt slightly reduce damage from anomalies “Rusty Hair” and “Fuzz” and slightly scares predators away. Cost is average. Scientific organizations show interest in it.</text>
+    </string>
+    <string id="af-ameba-mica">
+        <text>Mica</text>
+    </string>
+    <string id="enc_zone_artifact_af-ameba-mica">
+        <text>Artifact generated by “Slush” anomaly. Translucent or excrescence. Bearing artifact on the belt slightly reduce damage from anomalies “Rusty Hair” and “Fuzz” and slightly scares predators away, but constant wearing cause any single scratch to become mortally dangerous because of the rapid bleedings. Cost is high. Scientific organizations show interest in it.</text>
+    </string>
+    <string id="af-dummy-glassbeads">
+        <text>Glassbeads</text>
+    </string>
+    <string id="enc_zone_artifact_af-dummy-glassbeads">
+        <text>Artifact generates temporal field around it which locally slows the time. Freaky curved spiral strewed by shining pearl-drops. Reduces fatigue, hunger, slows bleedings. Radioactive. Activated by pressing. Generates “Time Machine” anomaly within several seconds after activations. Costs a huge bit of brass. This artifact is alluring to almost everyone.</text>
+    </string>
+    <string id="af-dummy-pellicle">
+        <text>Pellicle</text>
+    </string>
+    <string id="enc_zone_artifact_af-dummy-pellicle">
+        <text>Generated by “Boost” anomaly. Superfine pellicle of glassy substance with unusual dioptric abilities. Radioactive. Gives an owner almost total fatigue resistance. It can be activated by pressing after that artifacts is generating “Boost” anomaly for several seconds. Cost is really high. Scientific organizations, collectors, jewellers, showbusiness show great interest in this artifact.</text>
+    </string>
+    <string id="af-dummy-battery">
+        <text>Battery</text>
+    </string>
+    <string id="enc_zone_artifact_af-dummy-battery">
+        <text>Artifacts’ origin is unknown. Ribbed shining excrescence. Very useful artifact for his bearer. Increases all health characteristics, endurance, radioactivity resistance. Although, bearing it requires avoiding any anomalies because the damage will be increased. Gives an impression that artifact increases any processes running nearby. Selling cost – huge. Scientific organizations show great interest in the artifact.</text>
+    </string>
+    <string id="af-dummy-dummy">
+        <text>Dummy</text>
+    </string>
+    <string id="enc_zone_artifact_af-dummy-dummy">
+        <text>Artifact’s origin is unknown. Two hard discs connected with each other by the slime. Slightly reduces damage from all the gravy anomalies and blows absorbing the shock waves. Selling cost is average. Scientific organizations show interest in the artifact.</text>
+    </string>
+    <string id="af-dummy-spring">
+        <text>Spring</text>
+    </string>
+    <string id="enc_zone_artifact_af-dummy-spring">
+        <text>Artifact’s origin is unknown. Two hard discs connected with each other by the slime. Can move by itself due to the small bounces. Appearance of alive creatures cause its bouncing and inflicts shock damage. In small premises with few enemies produces an amusing effect of “elastic” bomb. It’s important to run far away after its activation. Bearing it on the belt slightly reduces the damage from all the gravy anomalies and blows absorbing the shock waves. Radioactive. Selling cost is extremely high. Scientific organizations show great interest in this artifact. </text>
+    </string>
+    <string id="Anomalies">
+        <text>Anomalies</text>
+    </string>
+    <string id="Bald">
+        <text>Trigger</text>
+    </string>
+    <string id="enc_zone_anomalies_bald">
+        <text>This anomaly has been discovered in 2008. Inflicts shock damage with the gravity field, like shock wave from the blow. “Lives” in average one week on one place. Changes influence power during its “life”. Influence power – from bruises and injuries to the immediate death with “launching” body to the orbit. Discovered by distortion of the air above it, giddy leaves and typical spots on the ground of red-brown color – places of losers and newbies “starts”. Its influence on the person can greatly reduce bearing “Twist”, “Gravity” and “Gold Fish”. Well served by any kinds of detectors and throwing different metallic objects on it. Randomly generates three types of artifacts around it: “Medusa”, “Stone Flower” and “Night Star”.</text>
+    </string>
+    <string id="Gravi">
+        <text>Vortex</text>
+    </string>
+    <string id="enc_zone_anomalies_gravi">
+        <text>Anomaly, presumably, gravitational by its nature.\nA small black hole. When anomaly activates, it intensively draws in all objects within a radius of 10-15 meters. It is highly important not to get into the zone of maximal effect, while this anomaly is extremely dangerous. It brakes bones and compresses body into bloody lump of flesh and then blows it up, after critical mass accumulates in the center and «core» «discharge». At this moment anomaly litters around the results of «insertion», thus creating new artifacts. During its «life» period anomaly doesn’t change its place and power of influence. It “lives” at one place for about a week. Its influence can de reduced, if you attach «Medusa», «Stone Flower» and «Night Star» artifacts to your belt. The anomaly can be detected by air distortion, twirling leaves, characteristic dark spot on the ground in the center of anomaly and dismember bodies of animals around it. It can be revealed with upgraded detectors only or by means of different metallic items. Usually generates the following artifacts: «Twist», «Gravity» и «Gold Fish».</text>
+    </string>
+    <string id="Meat">
+        <text>Whirlgig</text>
+    </string>
+    <string id="enc_zone_anomalies_meat">
+        <text>Merry name for this lousy thing is called forth the effect of rising any alive creature in the air with the following untwisting it and vivid diverting of various body parts. Very dangerous. The nature of this vortex like anomaly isn’t completely discovered. Discovered by the light dusty whirlwind and scattered around body parts of animals and people. It’s important not to miss the moment of the beginning of pulling into the anomaly vortex and not to trap into the zone of maximum effect in the center. Its influence on the person can be reduced by bearing “Medusa”, “Stone Flower” and “Night Star” on the belt. Usually generates three types of artifacts around it: “Stone Blood”, “Meat Loaf” and “ Soul”. All the artifacts of this sub natural “mincing machine” are mystically influencing on the vital human powers.</text>
+    </string>
+    <string id="Zharka">
+        <text>Fryer</text>
+    </string>
+    <string id="enc_zone_anomalies_zharka">
+        <text>Slightly visible in inactive condition cloud of the hot air. When the alive creature traps into it compact zone of combustion with the temperature near 1500K. All the living instantly burns and in the majority of cases dies. The danger of this anomaly is caused by its moving through the unclear random routes. The positive moment is in that “Fryer” activates any other anomalies thus it can be followed safely, without surprises. Discovered only by advanced detectors and throwing different metallic objects on it. Generates artifacts “ Drops”, “Fireball” and “ Crystal”.</text>
+    </string>
+    <string id="Electra">
+        <text>Electra</text>
+    </string>
+    <string id="enc_zone_anomalies_electra">
+        <text>Anomaly that accumulates static electricity in zone of about 10 meters in radius. If activated the anomaly explodes with a dozen of mini lightnings, contact with it usually finishes with your death. The peculiar feature of this anomaly is a bluish smoke above it. The anomaly can be easy revealed with detectors of any type or by means of different metallic items. It randomly generates 3 types of artifacts: «Sparkler», «Flash» and «Moonlight».</text>
+    </string>
+    <string id="Rusty">
+        <text>Rusty Hair</text>
+    </string>
+    <string id="enc_zone_anomalies_rusty">
+        <text>Mutations of flora led to appearance of this liana like spiny species. It can cause damage with its spikes. Anomaly generates around it 3 types of artifacts: «Thorn», «Crystal Thorn», «Sea Urchin». All those artifacts, when attached to the belt, improve the psi-resistance and some of them can be used as bouncing spiny mines.</text>
+    </string>
+    <string id="Fuzz">
+        <text>Fuzz</text>
+    </string>
+    <string id="enc_zone_anomalies_fuzz">
+        <text>Anomalous vegetation. If person approaches, it throws out a cloud of particles. Those particles in contact with the skin cause damage similar to damage caused by   venomous jelly-fishes. Anomaly generates around artifact «Kolobok». All artifacts generated by this anomaly improve resistance to radiation.</text>
+    </string>
+    <string id="Radioactive">
+        <text>Radioactive hotbed</text>
+    </string>
+    <string id="enc_zone_anomalies_radioactive">
+        <text>Zone of high radiation – over 50 mR/h. These zones are often noted on the map. The only advice – avoid staying in such zones for a long period of time.</text>
+    </string>
+    <string id="Ameba">
+        <text>Slush</text>
+    </string>
+    <string id="enc_zone_anomalies_ameba">
+        <text>The nature of this jellylike erupting thing is not yet researched. Causes damage similar to strong acid. Anomaly generates around «Slime», «Slug», «Mica» artifacts.</text>
+    </string>
+    <string id="Time">
+        <text>Time Machine</text>
+    </string>
+    <string id="enc_zone_anomalies_time">
+        <text>This anomaly can be called a miracle – it repeatedly slows down the time in radius of several meters. Anomaly has no influence on health but, is person gets into it, he can spend a lot of time on getting out of it. But if you lure opponent into it… The anfractuous artifact «Glassbeads» is usually situated in its center. By taking it we deactivate the zone. This temporal mine may come in handy later. </text>
+    </string>
+    <string id="Lift">
+        <text>Boost</text>
+    </string>
+    <string id="enc_zone_anomalies_lift">
+        <text>Harmless gravity anomaly allowing for several minutes to forget what Earth gravitation is. On a local scope with several meters radius, the gravitation will be decreased multiple times. Gradually drifting within throughout several minutes one can get out of it. The negative side is the loss of time and the fact that floundering on its waves you turn an easy prey to an armed enemy. Still though, lurking an opponent into it is a popular local stalker pastime. Generates «Pellicle» artifacts.  </text>
+    </string>
+    <string id="Locations">
+        <text>Locations</text>
+    </string>
+    <string id="Escape">
+        <text>Escape</text>
+    </string>
+    <string id="enc_zone_locations_escape">
+        <text>The Zone entrance, army cordon. In the village basement close to the army post you will locate the dealer. My advice is not to poke your nose or get in the field of soldiers view, they are ordered to shoot on sight… You are not to kill soldiers, only if there’s an extreme emergency – each killed one costs a pretty penny to the dealer, so I don’t think you’ll make him happy with a kill-fest. On the plains, you’ll find large packs of blind dogs, so unless you wanna kill yourself, don’t go there. </text>
+    </string>
+    <string id="Garbage">
+        <text>Garbage</text>
+    </string>
+    <string id="enc_zone_locations_garbage">
+        <text>This is a huge stinky dump, where heaps of radioactive trash was delivered after the accident in 1986… this includes destroyed cranes, vehicles… You can also locate remnants of old structures. Mutants are frequent as well. That place is popular with newbies mainly, as well as bandits naturally, so don’t stay long. Further down there you’ll find quite a few radioactive hotbeds, can’t do there without protection.</text>
+    </string>
+    <string id="Agroprom">
+        <text>Agroprom</text>
+    </string>
+    <string id="enc_zone_locations_agroprom">
+        <text>Stalkers call this area dead, the radiation is too high here… If you proceed deeper into the area, you’ll come out to radioactive plains, there also is a shallow rusty lake nearby. The entire lake is filled with remains of vehicles, one gigantic heap of rusty trash is barely covered with water. Among other finds, there are an old institute and factory, but the latter is too densely covered with some mutated muck. Don’t go there without gas mask – otherwise you’ll get a heavy portion. </text>
+    </string>
+    <string id="Darkdolina">
+        <text>Dark valley</text>
+    </string>
+    <string id="enc_zone_locations_darkdolina">
+        <text>This is a dark valley which is always murky and foggy. It frequently rains here. Besides, the anomaly concentration here is one of the highest… One can locate decent artifacts, so as find certain death… You are sure to meet veterans here – that’s the place they earn money in, shoveling off artifacts out of the very arse. The word is the Slugs gang have re-appeared again, no certainty though – they all had been shot down I heard. There’s an entrance to laboratory, though none came back from there, so my advice would be no-go there… It looks like Dwarves, or maybe something even worse…</text>
+    </string>
+    <string id="Darklab">
+        <text>Darklab</text>
+    </string>
+    <string id="enc_zone_locations_darklab">
+        <text>An underground laboratory, a gloomy place, which is said to contain documents revealing mysteries of the Zone, but most likely it’s just a junk of documents. It’s located on the lower levels of the laboratory, but the word is there are heaps of documents which they failed to burn earlier. And, naturally – that is the place where one of the murkiest underground representatives dwell – Burers and Bloodsuckers… Dwarves were virtually never seen, they are said to rebuff bullets therefore making usual weapons useless against them… Well, they also are said to hurl heavy bricks and metal armature using weird forces.    </text>
+    </string>
+    <string id="Bar">
+        <text>Bar</text>
+    </string>
+    <string id="enc_zone_locations_bar">
+        <text>Hehe… Before the accident in 1986 it was a regular city-structured village. Now, as you get it, it’s ruined remnants of the former village… In the local underground cafe of a food store you will find stalker bar, where stalkers from the entire Zone gather. The local dealer works as bartender here… holds, so to say, the premises. That’s your destination if you are up to trading, communicating and getting an interesting task… The latest news are there as well. If you go from the village, you’ll reach an old “Rostok” factory. Behind the factory there is a base of “Duty” grouping. The base is closed  for the people from outside, don’t go there my advice is.  </text>
+    </string>
+    <string id="Rostok">
+        <text>Rostok</text>
+    </string>
+    <string id="enc_zone_locations_rostok">
+        <text>Morose factory I admit. Many have died there… more is the pity. Bloodsuckers bred there in numbers, bastards… one can notice them even at night now. And they, as is well known, become stronger, having gulped one’s blood. Rumors say that there is something of the extreme importance, something vital indeed… Guys from Duty poked there recently, no one survived only the screams were covering the nearby areas. I don’t intend on your going there, let them starve those freaky bloodsuckers.</text>
+    </string>
+    <string id="Yantar">
+        <text>Yantar</text>
+    </string>
+    <string id="enc_zone_locations_yantar">
+        <text>The legendary lake Yantar, I surely know this one. The black, oily water… which drains the souls of stalkers who approach it: they disappear leaving nothing but the empty shell plop into water and move towards… the island in fog… The zombied empties then roam around. Once they spot you – they stream after you, so that’d be high time you cleared out, as they are many, the ex-stalkers, who perished at the lake, only to leave the empties roaming about… If you outskirt the lake and zombies, you can find a scientific camp, where they study something… they were brought by chopper, which also delivers them foodstuffs regularly, so they are well-set there… One can chat with them, they may buy artifacts, even can ask you to accomplish something for them. </text>
+    </string>
+    <string id="Military-loc">
+        <text>Army base</text>
+    </string>
+    <string id="enc_zone_locations_military-loc">
+        <text>Abandoned army base is there, an old village and a small lake. The grouping called Sin is now located within the army base… former religious zealots, who believed in the divine essence of the Zone, appear now to be under mutants control, although it still remains unclear. Once each member’s PDA has logged off, since there has been no sign from them.</text>
+    </string>
+    <string id="Deadcity">
+        <text>Dead city</text>
+    </string>
+    <string id="enc_zone_locations_deadcity">
+        <text>Dead city – the city of zombies and Freedom grouping, that has all the Zone anarchist bastards in it. Many storied buildings have snipers-anarchists which shoot off the strangers. So think twice before entering it.</text>
+    </string>
+    <string id="Phenomena">
+        <text>Phenomena</text>
+    </string>
+    <string id="Surge">
+        <text>Surge</text>
+    </string>
+    <string id="enc_zone_phenomena_surge_general">
+        <text>In equal periods of time waves surging the gravity substance in combination with sharply increased psychotropic influence takes place. During this activity being in the Zone is mortally dangerous, the whole territory suffers invisible waves, person without the special equipment dies in few seconds, the earth starts to shake, then comes the series of flares. Strikingly sky and black-and-white world, eyes can’t stand the blinding sun. During the surge phantom excrescences and haze in the places of gravy anomalies can be seen.</text>
+    </string>
+    <string id="Surge-story">
+        <text>Surge story</text>
+    </string>
+    <string id="enc_zone_phenomena_surge_surge-story">
+        <text>Resonant earthquake and lightning sparkles shine the black boiling skies. Stalker hardly get on well to enter the house – the surge begins. Continuous underearth strike shakes the house. The dust appears, rubbish falls from the shelves. The room is brightened by a flare of extremely blazing light through the broken window. The world loses its colors and turns grey. Through the opened door one can see the street and blackened blind dog corpse in it. Hurricane wind carries this rubbish the heaviest part of the surge begins. The earth arises everything is filled with the dead light. Then comes the many-voiced boom and din, lightning flares. The fallen objects shake on the floor. Stalker, having hidden in the corner, covers up his eyes that are becoming blind. There comes the peak of the surge. The very last, the strongest and the most terrible strike arrives. It pulls the earth and breaks the trees. Instantly it becomes dark then comes the light and whistle of gone mad Zone, stalker loses conscience…</text>
+    </string>
+    <string id="Zone-story">
+        <text>Zone stories</text>
+    </string>
+    <string id="Story-2006">
+        <text>Year 2006, the 12th of April, 14:33</text>
+    </string>
+    <string id="enc_zone_zone-story_story-2006">
+        <text>Chernobyl zone has been enlightened by the brightest, unbearable light. In the silver from the light sky clouds began to exhale. Then after the moment of the total silence comes the din and earthquake. People were falling on the ground holding their bleeding eyes and ears. Light appeared above the huge territory. Those who could run saving their lives. It looked as the stores of buried nuclear fuel exploded, tearing APP and outskirts to parts. The governmental forces have surrounded the Zone… Epicenter of the blow is situated in the kilometer from the APP. Supposedly, all the personnel died at the very first moments. Many people have been captured by the damage zone. Organizing lifesaving operations was really impossible, strange energetic shocks that posed hazard to the life of scientists. Few month after the accident crisis situation appeared – Zone has suddenly grown in size, consuming 5 kilometers of the surrounding territories. The majority of the governmental forces and the laboratory have instantly been destroyed. People began to panic. The citizens of the nearby villages and towns have been swiftly evacuated. The world is in imminent danger, which can’t be measured.</text>
+    </string>
+    <string id="Story-2008">
+        <text>Year 2008</text>
+    </string>
+    <string id="enc_zone_zone-story_story-2008">
+        <text>Two years have passed since the uncanny accident happened – the Zone exploded to leave radioactive clouds cover up vast expanses. \nIn the aftermath there have been left an enormous number of dead and missing people, lifeless animals, blackened structures, deformed forests. Thirty kilometers sealed off with the army, scientists cracking their minds to explain the happenings. The Zone grows, various anomalies bearing death to the trapped discovered within: the invisible force tears people apart, inflicts terrifying wounds causing blood to fountain. The rare expeditions encounter mutated animals, which could not appear in the Zone naturally. The catastrophe, mutants, infection – all appears an effect of some eerie phenomena… </text>
+    </string>
+    <string id="Story-2010">
+        <text>Year 2010</text>
+    </string>
+    <string id="enc_zone_zone-story_story-2010">
+        <text>The first expeditions can penetrate Zone for several kilometers without mortal danger. Amateurs, marauders and poachers have appeared in the Zone. They were said to be stalkers. Stalkers wander along the Zone in search for the diverse anomalous excrescence (artifacts), which will be repaid by the underground merchants.</text>
+    </string>
+    <string id="Story-raid">
+        <text>Large-scale Zone penetration</text>
+    </string>
+    <string id="enc_zone_zone-story_story-raid">
+        <text>Army detachments, led by the miliraty stalkers, have set out with the large-scale expedition into the depths of the Zone. Break to the epicentre of the Zone and eliminate the bottom of mortal anomalous fields or at least learn the reason and the circumstances of such events. The game begins when the last army detachment, with the coverage of the aviation and armoured troops went deep inside it. The whole expedition counting up to 1000 soldiers, stalkers and technicians has perished. Separate groups settled in the Zone territory without any hope for salvation.</text>
+    </string>
+</string_table>

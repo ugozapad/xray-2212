@@ -1,0 +1,1016 @@
+local t
+
+function loadJob(sj, gname, type, squad, groups)
+	if type == "test" then
+		t = { section = "walker1",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker2",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker3",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+	if type == "test1" then
+		t = { section = "sleeper@test1",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+--'--------------------------------------------------------------------------	
+--' ”ниверсальные гулаги дл€ smart terrain
+--'--------------------------------------------------------------------------
+	--' несколько кемперов
+	if type == "campers" then
+		for i = 1, 3 do
+			t = { section = "camper"..i.."@campers",
+				idle = 0,
+				prior = 0, state = {0},
+				squad = squad, group = groups[i],
+				in_rest = "", out_rest = ""
+			}
+			table.insert(sj, t)
+		end
+	end
+	--' несколько walkers
+	if type == "walkers" then
+		for i = 1, 3 do
+			t = { section = "walker"..i.."@walkers",
+				idle = 0,
+				prior = 0, state = {0},
+				squad = squad, group = groups[i],
+				in_rest = "", out_rest = ""
+			}
+			table.insert(sj, t)
+		end
+	end
+	--' один walker
+	if type == "search" then
+		t = { section = "walker@search",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[i],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+	--' отдых
+	if type == "rest" then
+		t = { section = "rest@rest",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[i],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+--'--------------------------------------------------------------------------	
+--' ESCAPE
+--'--------------------------------------------------------------------------
+	--' Escape blockpost
+	if type == "blockpost" then
+		t = { section = "patrol1@esc_blockpost",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 8, state = {0,1,2}, squad = squad, group = groups[2],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "follower1@esc_blockpost",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 7, state = {0,1,2}, squad = squad, group = groups[2],
+			in_rest = "", out_rest = "",
+			leader = "patrol1@esc_blockpost"
+		}
+		table.insert(sj, t)		
+		t = { section = "follower2@esc_blockpost",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 7, state = {0,1,2}, squad = squad, group = groups[2],
+			in_rest = "", out_rest = "",
+			leader = "patrol1@esc_blockpost"
+		}
+		table.insert(sj, t)
+		t = { section = "camper1@esc_blockpost",
+			idle = 0,
+			prior = 10, state = {0,1,2}, squad = squad, group = groups[3],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker2@esc_blockpost",
+			idle = 0,
+			prior = 9, state = {0}, squad = squad, group = groups[3],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker3@esc_blockpost",
+			idle = 0,
+			prior = 9, state = {0}, squad = squad, group = groups[3],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@esc_blockpost",
+			idle = 0,
+			prior = 5, state = {0,1},  squad = squad, group = groups[1],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@esc_blockpost",
+			idle = 0,
+			prior = 5, state = {0,1}, squad = squad, group = groups[1],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@esc_blockpost",
+			idle = 0,
+			prior = 5, state = {0,1}, squad = squad, group = groups[1],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper1@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper2@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper3@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper4@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper5@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper6@esc_blockpost",
+			idle = 0,
+			prior = 0, state = {0,1,2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		--' alarm
+		t = { section = "walker1@esc_blockpost_alarm",
+			idle = 0,
+			prior = 9, state = {2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker2@esc_blockpost_alarm",
+			idle = 0,
+			prior = 9, state = {2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker3@esc_blockpost_alarm",
+			idle = 0,
+			prior = 9, state = {2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker4@esc_blockpost_alarm",
+			idle = 0,
+			prior = 9, state = {2}, squad = squad, group = groups[4],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker5@esc_blockpost_alarm",
+			idle = 0,
+			prior = 8, state = {2}, squad = squad, group = groups[3],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		t = { section = "walker6@esc_blockpost_alarm",
+			idle = 0,
+			prior = 8, state = {2}, squad = squad, group = groups[3],
+			in_rest = "", out_rest = "escape_blockpost_zone"
+		}
+		table.insert(sj, t)
+		--' командир
+		t = { section = "walker@esc_blockpost_commander_day",
+			idle = 0,
+			prior = 100, state = {0,2}, squad = squad, group = groups[1],
+			in_rest = "", out_rest = "escape_blockpost_zone",
+			predicate = function(obj) 
+			            	return obj:profile_name() == "soldier_commander"
+			            end
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper@esc_blockpost_commander_night",
+			idle = 0,
+			prior = 100, state = {1}, squad = squad, group = groups[1],
+			in_rest = "", out_rest = "escape_blockpost_zone",
+			predicate = function(obj)
+			            	return obj:profile_name() == "soldier_commander"
+			            end
+		}
+		table.insert(sj, t)
+	end
+
+	--' Ћагерь новичков на Escape
+	if type == "esc_lager" then
+		-- охранники
+		t = { section = "zoneguard1@esc_lager",
+			idle = 0,
+			prior = 9, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "",
+			actor_dialogs = "zoneguard@esc_lager_actor_dialogs"
+		}
+		table.insert(sj, t)
+		t = { section = "zoneguard2@esc_lager",
+			idle = 0,
+			prior = 9, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "",
+			actor_dialogs = "zoneguard@esc_lager_actor_dialogs"
+		}
+		table.insert(sj, t)
+		t = { section = "walker3@esc_lager",
+			idle = 0,
+			prior = 8, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker4@esc_lager",
+			idle = 0,
+			prior = 8, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		-- у костра днЄм
+		t = { section = "kamp1@esc_lager",
+			idle = 0,
+			prior = 6, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@esc_lager",
+			idle = 0,
+			prior = 6, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@esc_lager",
+			idle = 0,
+			prior = 6, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		-- сп€щие ночью
+		t = { section = "sleeper1@esc_lager",
+			idle = 0,
+			prior = 3, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper2@esc_lager",
+			idle = 0,
+			prior = 3, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper3@esc_lager",
+			idle = 0,
+			prior = 3, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		-- сп€щие ночью и днЄи
+		t = { section = "sleeper4@esc_lager",
+			idle = 0,
+			prior = 0, state = {0,1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper5@esc_lager",
+			idle = 0,
+			prior = 0, state = {0,1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper6@esc_lager",
+			idle = 0,
+			prior = 0, state = {0,1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper7@esc_lager",
+			idle = 0,
+			prior = 0, state = {0,1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+
+	--' Ѕандиты на фабрике
+	if type == "esc_fabrika_bandit" then
+		-- снайпер, охран€ющий лестницу на чердак
+--		t = { section = "camper@esc_fabrika_bandit",
+--			idle = 0,
+--			prior = 3, state = {0, 1},
+--			in_rest = "", out_rest = ""
+--		}
+--		table.insert(sj, t)
+		-- часовые днЄм
+		t = { section = "walker1@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker2@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker3@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker4@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker5@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "walker6@esc_fabrika_bandit_day",
+			idle = 0,
+			prior = 2, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		-- сид€щие у костра всегда
+		t = { section = "kamp@esc_fabrika_bandit",
+			idle = 0,
+			prior = 1, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp@esc_fabrika_bandit",
+			idle = 0,
+			prior = 1, state = {0, 1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		-- сид€щие у костра ночью
+		t = { section = "kamp@esc_fabrika_bandit",
+			idle = 0,
+			prior = 0, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp@esc_fabrika_bandit",
+			idle = 0,
+			prior = 0, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp@esc_fabrika_bandit",
+			idle = 0,
+			prior = 0, state = {1},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+
+--'--------------------------------------------------------------------------	
+--' GARBAGE
+--'--------------------------------------------------------------------------	
+	--' Garbage bandits
+	if type == "gar_bandits" then
+		t = { section = "walker1@gar_bandits",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@gar_bandits",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@gar_bandits",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_bandits",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_bandits",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_bandits",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_bandits",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_bandits",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker1@gar_bandits_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@gar_bandits_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@gar_bandits_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker4@gar_bandits_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker5@gar_bandits_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+	end
+	--' Garbage stalkers
+	if type == "gar_stalkers" then
+		t = { section = "walker1@gar_stalkers",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@gar_stalkers",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@gar_stalkers",
+			idle = 0,
+			prior = 3, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "kamp1@gar_stalkers",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@gar_stalkers",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_stalkers",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_stalkers",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_stalkers",
+			idle = 0,
+			prior = 1, state = {0,1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker1@gar_stalkers_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@gar_stalkers_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@gar_stalkers_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker4@gar_stalkers_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker5@gar_stalkers_attack",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+	end
+	--' Garbage maniac
+	if type == "gar_maniac" then
+		t = { section = "camper1@gar_maniac",
+			idle = 0,
+			prior = 5, state = {0},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "sleeper1@gar_maniac",
+			idle = 0,
+			prior = 5, state = {1},
+			in_rest = "", out_rest = ""
+		}
+		table.insert(sj, t)		
+	end
+	--' Garbage DOLG blockpost	
+	if type == "gar_dolg" then
+		t = { section = "kamp1@gar_dolg",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)
+		t = { section = "kamp1@gar_dolg",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_dolg",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		t = { section = "kamp2@gar_dolg",
+			idle = 15*60*1000,
+			prior = 2, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp3@gar_dolg",
+			idle = 15*60*1000,
+			prior = 3, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_dolg",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)				
+		t = { section = "kamp1@gar_dolg",
+			idle = 0,
+			prior = 0, state = {0},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "patrol1@gar_dolg",
+			idle = 2 * 1000 * 60 * 60,
+			prior = 8, state = {0},
+			in_rest = "", out_rest = "",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "follower1@gar_dolg",
+			idle = 2 * 1000 * 60 * 60,
+			prior = 4, state = {0},
+			in_rest = "", out_rest = "",
+			leader = "patrol1@gar_dolg",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "follower1@gar_dolg",
+			idle = 2 * 1000 * 60 * 60,
+			prior = 4, state = {0},
+			in_rest = "", out_rest = "",
+			leader = "patrol1@gar_dolg",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "zoneguard1@gar_dolg",
+			idle = 0,
+			prior = 10, state = {0, 1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "zoneguard2@gar_dolg",
+			idle = 0,
+			prior = 10, state = {0, 1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)		
+		t = { section = "zoneguard3@gar_dolg",
+			idle = 0,
+			prior = 10, state = {0, 1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+		t = { section = "camper1@gar_dolg",
+			idle = 0,
+			prior = 10, state = {1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+		t = { section = "camper2@gar_dolg",
+			idle = 0,
+			prior = 10, state = {1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+		t = { section = "camper3@gar_dolg",
+			idle = 0,
+			prior = 10, state = {1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+		t = { section = "camper4@gar_dolg",
+			idle = 0,
+			prior = 10, state = {1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+		t = { section = "camper5@gar_dolg",
+			idle = 0,
+			prior = 10, state = {1},
+			in_rest = "", out_rest = "gar_golg_restrictor",
+			actor_dialogs = "dolg@gar_dolg_kamp_actor_dialogs"
+		}
+		table.insert(sj, t)			
+    end	    
+
+
+--'--------------------------------------------------------------------------	
+--' AGROPROM
+--'--------------------------------------------------------------------------	
+	--' Agroprom NII
+	if type == "agr_nii" then
+		t = { section = "walker1@agr_nii",
+			idle = 0,
+			prior = 9, state = {0},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@agr_nii",
+			idle = 0,
+			prior = 9, state = {0},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@agr_nii",
+			idle = 0,
+			prior = 9, state = {1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker4@agr_nii",
+			idle = 0,
+			prior = 9, state = {1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "camper1@agr_nii",
+			idle = 0,
+			prior = 8, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker5@agr_nii",
+			idle = 0,
+			prior = 7, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "camper2@agr_nii",
+			idle = 0,
+			prior = 6, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker6@agr_nii",
+			idle = 0,
+			prior = 5, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "walker7@agr_nii",
+			idle = 0,
+			prior = 5, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "patrol1@agr_nii",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 4, state = {0},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)		
+		t = { section = "follower1@agr_nii",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 3, state = {0},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = "",
+			leader = "patrol1@agr_nii"
+		}
+		table.insert(sj, t)		
+		t = { section = "follower2@agr_nii",
+			idle = 4 * 1000 * 60 * 60,
+			prior = 3, state = {0},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = "",
+			leader = "patrol1@agr_nii"
+		}
+		table.insert(sj, t)		
+		t = { section = "sleeper1@agr_nii",
+			idle = 0,
+			prior = 0, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper2@agr_nii",
+			idle = 0,
+			prior = 0, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)
+		t = { section = "sleeper3@agr_nii",
+			idle = 0,
+			prior = 0, state = {0,1},
+			in_rest = "agroprom_underground_space_restrictor", out_rest = ""
+		}
+		table.insert(sj, t)
+	end
+
+	--' Agroprom factory
+	if type == "agr_factory" then
+		t = { section = "walker1@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)		
+		t = { section = "walker2@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)		
+		t = { section = "walker3@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)		
+		t = { section = "walker4@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)		
+		t = { section = "walker5@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)		
+		t = { section = "walker6@agr_factory",
+			idle = 0,
+			prior = 0, state = {0},
+			squad = squad, group = groups[1],
+			in_rest = "", out_rest = "agr_factory_restrictor"
+		}
+		table.insert(sj, t)
+	end
+end
+
+function loadStates(gname, type)
+	if type == "test" or type == "test1" then
+		return function(gulag)
+			return 0
+		end
+	end
+
+	if type == "gar_maniac" then
+		return function(gulag)
+			if level.get_time_hours() >= 7 and level.get_time_hours() <= 22 then
+				return 0  -- день
+			else
+				return 1  -- ночь
+			end
+		end
+	end
+
+	if type == "agr_nii" then
+		return function(gulag)
+			if level.get_time_hours() >= 7 and level.get_time_hours() <= 22 then
+				return 0  -- день
+			else
+				return 1  -- ночь
+			end
+		end
+	end
+
+
+	if type == "blockpost" then
+		return function(gulag)
+			if gulag:getCasualities() >= 3 then
+				printf("Start Raid")
+				gulag:changeCasualities(gulag:getCasualities())
+				escape_raid.start_raid()
+			end
+		
+			for k,v in gulag.Object do
+				enemy = v:best_enemy()
+				if enemy ~= nil then
+					enemy_type = get_clsid(enemy)
+					if enemy_type == clsid.actor or
+	  	   			   enemy_type == clsid.soldier or
+		   			   enemy_type == clsid.stalker or
+	   				   enemy_type == clsid.trader
+	   				then
+	   					gulag.alarm_start = game.get_game_time()
+	   					return 2 -- тревога
+	   				end
+				end
+			end		
+		
+			if gulag.alarm_start == nil or
+				game.get_game_time():diffSec(gulag.alarm_start) > 300 then
+				if level.get_time_hours() >= 6 and level.get_time_hours() <= 22 then
+					return 0  -- день
+				else
+					return 1  -- ночь
+				end
+			else
+				return 2
+			end
+		end
+	end
+	if type == "gar_stalkers" or type == "gar_bandits" then
+		return function(gulag)
+			if gulag.state == 1 then return 1 end
+			
+			local actor = level.actor()
+			local zone = level.object("gar_shooting")
+			if actor ~= nil and zone ~= nil then
+				if actor:position():distance_to(zone:position()) < 50 then
+					return 1
+				else
+					return 0
+				end
+			else
+				return 0
+			end
+		end
+	end
+	
+	if type == "gar_dolg" then
+		return function(gulag)
+			--if gulag.state == 1 then return 1 end
+			local actor = level.actor()
+			if actor and actor:has_info ("gar_monsters_rush_wave1") then
+			   printf ("GARBAGE DOLG GULAG STATE 1") 
+               return 1
+			else
+			   printf ("GARBAGE DOLG GULAG STATE 0") 
+			   return 0
+			end
+		end
+	end
+
+	if type == "esc_lager" or type == "esc_fabrika_bandit" then
+		return function(gulag)
+			if level.get_time_hours() >= 8 and level.get_time_hours() <= 21 then
+				return 0  -- день
+			else
+				return 1  -- ночь
+			end
+		end
+	end
+
+	if type == "agr_factory" then
+		return function( gulag )
+			if gulag:getCasualities() >= 3 then
+				local actor = level.actor()
+				if actor and actor:dont_has_info( "agr_factory_need_help" ) then
+					actor:give_info_portion( "agr_factory_need_help" )
+				end
+			end
+			return 0
+		end
+	end
+end
+
+function get_megafone(type, name)
+	if type == "blockpost" then
+		st = gramofon.m_gramofon(name.."_rupor", "blockpost_commander")
+		st:event(0)
+		return st
+	end
+	return nil
+end

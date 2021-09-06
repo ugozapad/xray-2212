@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding="windows-1251"?>
+<!-- таблица строк общего назначения -->
+<string_table>
+	<string id="Local Map">
+		<text>Локальная карта</text>
+	</string>
+
+	<string id="Global Map">
+		<text>Глобальная карта</text>
+	</string>
+
+	<!-- Надписи внизу основного окна -->
+	<string id="cant_walk">
+		<text>слишком истощен, чтобы идти</text>
+	</string>
+
+	<!-- Надпись на физической двери -->
+
+	<string id="tip_door_locked">
+		<text>Дверь заперта</text>
+	</string>
+
+	<string id="tip_door_open">
+		<text>Нажмите 'E' для того, чтобы открыть дверь</text>
+	</string>
+
+	<string id="tip_door_close">
+		<text>Нажмите 'E' для того, чтобы закрыть дверь</text>
+	</string>
+
+</string_table>
+

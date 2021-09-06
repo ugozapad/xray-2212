@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding="windows-1251"?>
+
+<game_information_portions>
+
+    <info_portion id="agroprom_military_case">
+		<task>agroprom_get_military_documents</task>
+		<location>
+			<level>l03_agroprom</level>
+			<object>200</object>
+			<icon big_icon="1" name="" x="5" y="1" width="1" height="1" r="238" g="155" b="23" marker="1"></icon>
+			<text>Добыть военные документы</text>
+		</location>    
+    </info_portion>
+    <info_portion id="agroprom_military_case_have">
+    	<disable>agroprom_military_case</disable>
+    </info_portion>
+    <info_portion id="agroprom_military_case_done">
+    </info_portion>
+
+    <info_portion id="agr_krot_band">
+		<location>
+			<level>l03_agroprom</level>
+			<x>12</x>
+			<y>8</y>
+			<icon big_icon="1" name="" x="1" y="0" width="1" height="1" r="238" g="155" b="23" marker="1"></icon>
+			<text>Встретиться со сталкерами.</text>
+		</location>    
+		<task>agr_meet_krot_band</task>
+		<article>storyline_seriy_flash_info</article>
+    </info_portion>
+    <info_portion id="agr_krot_band_done">
+    	<disable>agr_krot_band</disable>
+    </info_portion>
+
+    <info_portion id="agr_find_gunslinger_cache">
+		<task>agroprom_find_gunslinger_cache</task>
+		<article>storyline_gunslinger_cache_info</article>
+		<location>
+			<level>l03_agroprom</level>
+			<object>201</object>
+			<icon big_icon="1" name="" x="4" y="4" width="1" height="1" r="238" g="155" b="23" marker="1"></icon>
+			<text>Тайник Стрелка</text>
+		</location>
+    </info_portion>
+    <info_portion id="agr_find_gunslinger_cache_done">
+    	<disable>agr_find_gunslinger_cache</disable>
+    </info_portion>
+
+
+    <info_portion id="agroprom_find_stalker_phantom">
+    	<task>agroprom_find_stalker_phantom</task>
+    	<article>storyline_gunslinger_flash_info</article>
+    </info_portion>
+    <info_portion id="agroprom_find_stalker_phantom_done">
+    	<disable>agroprom_find_stalker_phantom</disable>
+    </info_portion>
+
+	<!-- infoportions для ситуации на заводе на агропроме -->
+	<info_portion id="agr_factory_combat_start">
+	</info_portion>
+
+	<info_portion id="agr_factory_need_help">
+	</info_portion>
+	
+	
+</game_information_portions>

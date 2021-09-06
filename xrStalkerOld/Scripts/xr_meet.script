@@ -1,0 +1,509 @@
+----------------------------------------------------------------------------------------------------------------------
+--	Схема встречи двух сталкеров
+--	автор: Диденко Руслан (Stohe)
+--	TODO:
+----------------------------------------------------------------------------------------------------------------------
+
+local sounds = {}
+---------------------------------------------------------------------------------------------------------------------
+--Evaluators
+----------------------------------------------------------------------------------------------------------------------
+--' Возвращает есть ли у нас контакт с другим сталкером
+class "evaluator_contact" (property_evaluator)
+function evaluator_contact:__init(name, storage) super (nil, name)
+	self.a = storage
+end
+function evaluator_contact:evaluate()
+	if self.a.enabled == false then return false end
+
+	local overrides = xr_logic.generic_scheme_overrides(self.object)
+	if overrides ~= nil and
+		overrides.meet_enabled ~= true
+	then
+		return false
+	end
+	
+	local actor = level.actor()
+
+	if actor then
+		if actor:alive() and 
+		   self.object:see(actor) and
+		   self.object:position():distance_to(actor:position()) < self.a.distance
+		then
+			self.a.actor = actor
+		else
+			self.a.actor = nil
+		end
+	else
+		self.a.actor = nil
+	end	
+
+	if self.a.actor ~= nil and self.a.over == false then
+		xr_reactions.add_rule(self.object, "ignore")
+		return true
+	else
+		xr_reactions.remove_rule(self.object, "ignore")
+		return false
+	end
+end
+--' имеет ли клиент оружие
+class "evaluator_weapon" (property_evaluator)
+function evaluator_weapon:__init(name, storage) super (nil, name)
+	self.a = storage
+end
+function evaluator_weapon:evaluate()
+	--' Если рядом с нами нейтрал и он вооружен
+	if self.a.actor then
+		if self.a.actor:alive() and
+		   self.object:see(self.a.actor) and
+		   self.object:relation(self.a.actor) == game_object.neutral 
+--		   and
+--		   (self.object:character_community() ~= "dolg" and
+--		    self.object:character_community() ~= "freedom" and
+--		    self.object:character_community() ~= "killer")
+		then 
+			return isWeapon(self.a.actor:active_item())
+		end
+	end
+	return false
+end
+--' нужно ли отпугивать клиента
+class "evaluator_threat" (property_evaluator)
+function evaluator_threat:__init(name, storage) super (nil, name)
+	self.a = storage
+end
+function evaluator_threat:evaluate()
+	--' Если рядом с нами член другой группировки
+	return false
+end
+--' ждать появления клиента
+class "evaluator_wait" (property_evaluator)
+function evaluator_wait:__init(name, storage) super (nil, name)
+	self.a = storage
+end
+function evaluator_wait:evaluate()
+	return self.a.Buyer ~= nil
+end
+
+----------------------------------------------------------------------------------------------------------------------
+--Actions
+----------------------------------------------------------------------------------------------------------------------
+--' Ожидание появления покупателя
+class "action_wait_for_buyer" (action_base)
+function action_wait_for_buyer:__init (npc_name,action_name,storage) super (nil, action_name)
+	self.a = storage
+end
+function action_wait_for_buyer:initialize()
+	action_base.initialize(self)
+
+	self.object:set_node_evaluator()
+	self.object:set_path_evaluator()
+	self.object:set_desired_position()
+	self.object:set_desired_direction()    
+
+	level.map_add_object_icon(self.object, 0)	
+	self.object:set_item(object.idle, self.object:best_weapon())
+	self.object:set_movement_type(move.stand)
+	self.object:set_mental_state(anim.free)
+
+	self.act = {type = 1,
+		     begin = nil,
+		     time = 6}
+
+	self.anim = {idle = 0,
+		     begin = nil,
+		     maxidle = 5, 
+		     sumidle = 5,
+   		     rnd = 100,
+		     lastanim = nil}
+
+	self.anim_s = {idle = 0,
+		     begin = nil,
+		     maxidle = 3, 
+		     sumidle = 5,
+   		     rnd = 80,
+		     lastanim = nil}
+
+	self.sound_s = { rnd = 100,
+				   maxidle = 2, 
+				   sumidle = 5,
+				   themes = { "weather", "state", "hail" } }
+
+	self.sound_w = { rnd = 100,
+				   maxidle = 5, 
+				   sumidle = 7,
+				   themes = { "weather", "state", "wait" } }
+	
+	xr_state.change_state(self.object, xr_state.stand)
+end
+function action_wait_for_buyer:execute ()
+	action_base.execute (self)
+
+	if xr_state.finish_state(self.object) ~= nil then
+		return
+	end
+	
+	-- Проверка, видим ли мы актора или нет
+	if self.object:see(self.a.Buyer) == true then
+		-- смотрим на клиента
+		local pos = self.a.Buyer:position()
+   		pos.y = pos.y + 1
+   		self.object:set_sight(look.point, pos, 0)
+
+		-- секция анимации
+		xr_state.anim_update("idle", self.object)
+		-- надо изредка рукой махать
+		if (self.anim_s.begin == nil or
+		   (device():time_global()/1000 - self.anim_s.begin) > self.anim_s.idle) then
+			if math.random(100) < self.anim_s.rnd then
+				xr_state.anim_update("hello", self.object)
+			end
+			self.anim_s.begin = device():time_global()/1000
+			self.anim_s.idle = math.random(self.anim_s.maxidle) + self.anim_s.sumidle
+		end
+		                           
+		-- секция озвучки
+		if self.object:active_sound_count() == 0 then
+			xr_sound.sound_update(self.object, self.sound_s)		
+		end
+	else
+		-- секция анимации
+		-- 1: если не отыгрываем никаких анимаций - то поворачиваемся в случайную сторону
+		-- 2: выжидаем, иногда отыгрывая какую либо анимацию
+		if self.act.type == 1 then
+			self.act.begin = device():time_global()/1000
+			self.act.type = 2
+
+			local dir = vector():set(math.random(10)-5, 0, math.random(10)-5)
+			self.object:set_sight(look.direction, dir, 0)
+			self.object:set_body_state(move.standing)
+		else
+			xr_state.anim_update("idle", self.object)
+
+			if (device():time_global()/1000 - self.act.begin) > self.act.time then
+				self.act.type = 1
+			end
+		end
+
+		-- секция озвучки
+		if self.object:active_sound_count() == 0 then
+			xr_sound.sound_update(self.object, self.sound_w)		
+		end
+	end
+
+	-- проверять условия завершения ожидания
+	if xr_motivator.storage[self.object:id()].meet.actor ~= nil then
+		self.a.Buyer = nil
+	end
+end
+function action_wait_for_buyer:finalize ()
+	level.map_remove_object_icon(self.object)
+	action_base.finalize (self)
+end
+
+--' Приглашение к тороговле
+class "action_meet_wait" (action_base)
+function action_meet_wait:__init (npc_name,action_name, storage, char_ini) super (nil, action_name)
+	self.char_ini = char_ini
+	self.a = storage
+
+	self.sound_w = { rnd = 80,
+				   maxidle = 2, 
+				   sumidle = 8,
+				   themes = { "weather", "state", "wait" } }
+end
+function action_meet_wait:initialize()
+	action_base.initialize(self)
+	self.object:set_node_evaluator()
+	self.object:set_path_evaluator()
+	self.object:set_desired_position()
+	self.object:set_desired_direction()    
+
+	self.object:set_body_state(move.standing)
+	self.object:set_movement_type(move.stand)
+	self.object:set_mental_state(anim.free)
+
+   	xr_state.change_state(self.object,xr_state.stand)
+   	self.object:set_item(object.deactivate, self.object:best_weapon())
+	
+   	self.a.Buyer = nil
+end
+function action_meet_wait:execute ()
+	if xr_state.finish_state(self.object) == true then
+		self.object:enable_talk()
+	else
+		return
+	end
+	
+	-- нужно остановиться и посмотреть в сторону актора
+	local dir = self.a.actor:position():sub(self.object:position())
+
+	self.object:set_sight(look.direction, dir, 0)
+
+	-- Анимации
+	xr_state.anim_update("idle", self.object)
+
+	-- Звуки
+	if self.object:active_sound_count() == 0 then
+		xr_sound.sound_update(self.object, self.sound_w)		
+	end
+	action_base.execute (self)
+end
+function action_meet_wait:finalize ()
+	self.object:disable_talk()
+	xr_state.anim_update(nil, self.object)
+	action_base.finalize (self)
+end
+
+--' Типа спрячь пушку, чувак
+class "action_weapon" (action_base)
+function action_weapon:__init (npc_name,action_name, storage) super (nil, action_name)
+	self.a = storage
+
+	self.sound_e = { rnd = 100,
+				   maxidle = 3, 
+				   sumidle = 5,
+				   themes = { "threat_weap" } }
+end
+function action_weapon:initialize()
+	action_base.initialize(self)
+	self.object:set_node_evaluator()
+	self.object:set_path_evaluator()
+	self.object:set_desired_position()
+	self.object:set_desired_direction()    
+
+	self.object:set_body_state(move.standing)
+	self.object:set_movement_type(move.stand)
+	self.object:set_mental_state(anim.danger)
+
+	self.object:clear_animations()
+	stop_play_sound(self.object)
+end
+function action_weapon:execute ()
+   	self.object:set_item(object.idle, self.object:best_weapon())
+	
+	-- нужно остановиться и посмотреть в сторону актора
+	local pos = self.a.actor:position()
+
+	local dir = self.a.actor:position():sub(self.object:position())
+	self.object:set_sight(look.direction, dir, true)
+
+	if self.object:active_sound_count() == 0 then
+		xr_sound.sound_update(self.object, self.sound_e)		
+	end	
+	xr_meet.attack(self.object, self.a)
+	action_base.execute (self)
+end
+function action_weapon:finalize ()
+	action_base.finalize (self)
+end
+
+--' Типа свали отсюда, чувак
+class "action_threat" (action_base)
+function action_threat:__init (npc_name,action_name, storage) super (nil, action_name)
+	self.a = storage
+
+	self.sound_e = { rnd = 100,
+				   maxidle = 3, 
+				   sumidle = 5,
+				   themes = { "threat_back" } }
+end
+function action_threat:initialize()
+	action_base.initialize(self)
+	self.object:set_node_evaluator()
+	self.object:set_path_evaluator()
+	self.object:set_desired_position()
+	self.object:set_desired_direction()    
+
+	self.object:set_body_state(move.standing)
+	self.object:set_movement_type(move.stand)
+	self.object:set_mental_state(anim.danger)
+
+	self.object:clear_animations()
+	stop_play_sound(self.object)
+end
+function action_threat:execute ()
+   	self.object:set_item(object.idle, self.object:best_weapon())
+
+	-- нужно остановиться и посмотреть в сторону актора
+	local pos = self.a.actor:position()
+
+	local dir = self.a.actor:position():sub(self.object:position())
+	self.object:set_sight(look.direction, dir, 0)
+
+	if self.object:active_sound_count() == 0 then
+		xr_sound.sound_update(self.object, self.sound_e)		
+	end	
+	xr_meet.attack(self.object, self.a)
+	action_base.execute (self)
+end
+function action_threat:finalize ()
+	action_base.finalize (self)
+end
+----------------------------------------------------------------------------------------------------------------------
+-- Functions
+----------------------------------------------------------------------------------------------------------------------
+function attack(npc, st)
+	sound_f = { rnd = 100,
+			   maxidle = 3, 
+			   sumidle = 5,
+			   themes = { "talk_abuse" } }					
+
+	-- если актер ближе какого-то радиуса - открывать огонь
+	if npc:position():distance_to(st.actor:position()) < st.shoot_distance then
+		if npc:active_sound_count() == 0 then
+			xr_sound.sound_update(npc, sound_f)		
+		end
+		--'npc:set_relation(game_object.enemy, st.actor) FIXME
+	end
+end
+function disable_meet(npc)
+	if npc ~= nil and
+	   is_object_online(npc:id()) == true 
+	then
+		xr_motivator.storage[npc:id()].meet.enabled = false
+	end
+end
+function enable_meet(npc)
+	if npc ~= nil and
+	   is_object_online(npc:id()) == true 
+	then
+		xr_motivator.storage[npc:id()].meet.enabled = true
+	end
+end
+----------------------------------------------------------------------------------------------------------------------
+-- binder
+----------------------------------------------------------------------------------------------------------------------
+function add_to_binder(object, char_ini)
+	local operators		= {}
+	local properties	= {}
+
+	local manager = object:motivation_action_manager()
+
+	properties["event"] 		= xr_evaluators_id.reaction
+	properties["wait_buyer"] 	= xr_evaluators_id.stohe_tradeseller_base + 1
+	properties["contact"]		= xr_evaluators_id.stohe_meet_base + 1         
+	properties["weapon"]		= xr_evaluators_id.stohe_meet_base + 2
+	properties["threat"]		= xr_evaluators_id.stohe_meet_base + 3
+	properties["need_punch"]	= xr_evaluators_id.zmey_punch_base + 1
+
+	operators["wait_buyer"] 		= xr_actions_id.stohe_tradeseller_base + 2
+	operators["wait_trade"]			= xr_actions_id.stohe_meet_base + 1
+	operators["weapon"]				= xr_actions_id.stohe_meet_base + 2
+	operators["threat"]				= xr_actions_id.stohe_meet_base + 3
+	operators["talk"]				= xr_actions_id.stohe_meet_base + 6
+
+	-- Evaluators
+	manager:add_evaluator (properties["wait_buyer"], 	evaluator_wait		("meet_wait_buyer", xr_motivator.storage[object:id()].meet, "meet_wait_buyer"))
+	manager:add_evaluator (properties["contact"], 		evaluator_contact	("meet_contact", xr_motivator.storage[object:id()].meet, "meet_contact"))
+	manager:add_evaluator (properties["weapon"], 		evaluator_weapon	("meet_weapon", xr_motivator.storage[object:id()].meet, "meet_weapon"))
+	manager:add_evaluator (properties["threat"], 		evaluator_threat	("meet_threat", xr_motivator.storage[object:id()].meet, "meet_threat"))
+
+	-- Actions
+	local action = action_meet_wait (object:name(),"action_meet_wait", xr_motivator.storage[object:id()].meet, char_ini)
+	action:add_precondition		(world_property(stalker_ids.property_alive, true))
+	action:add_precondition		(world_property(stalker_ids.property_enemy,	false))
+	action:add_precondition		(world_property(properties["contact"], 		true))
+	action:add_precondition		(world_property(properties["weapon"], 		false))
+	action:add_precondition		(world_property(properties["threat"], 		false))
+	action:add_effect 			(world_property(properties["contact"], 		false))
+	manager:add_action (operators["wait_trade"], action)
+
+	action = action_weapon (object:name(),"action_weapon", xr_motivator.storage[object:id()].meet)
+	action:add_precondition		(world_property(stalker_ids.property_alive, true))
+	action:add_precondition		(world_property(stalker_ids.property_enemy,	false))
+	action:add_precondition		(world_property(properties["contact"], 		true))
+	action:add_precondition		(world_property(properties["weapon"], 		true))
+	action:add_effect 		(world_property(properties["weapon"], 			false))
+	manager:add_action (operators["weapon"], action)
+
+	action = action_threat (object:name(),"action_threat", xr_motivator.storage[object:id()].meet)
+	action:add_precondition		(world_property(stalker_ids.property_alive, true))
+	action:add_precondition		(world_property(stalker_ids.property_enemy,	false))
+	action:add_precondition		(world_property(properties["contact"], 		true))
+	action:add_precondition		(world_property(properties["threat"], 		true))
+	action:add_effect 		(world_property(properties["threat"], 			false))
+	manager:add_action (operators["threat"], action)
+
+	-- Ожидание торговца
+	action = action_wait_for_buyer (object:name(),"action_wait_for_buyer", xr_motivator.storage[object:id()].meet)
+	action:add_precondition		(world_property(stalker_ids.property_alive, true))
+	action:add_precondition		(world_property(stalker_ids.property_enemy,	false))
+	action:add_precondition		(world_property(properties["wait_buyer"], 	true))
+	action:add_precondition		(world_property(properties["event"], 		false))
+	action:add_effect 		(world_property(properties["wait_buyer"], 		false))
+	manager:add_action (operators["wait_buyer"], action)
+
+	action = manager:action (xr_actions_id.alife)	
+	action:add_precondition		(world_property(properties["contact"],		false))
+	action:add_precondition		(world_property(properties["wait_buyer"], 	false))
+
+    if char_ini ~= nil and char_ini:section_exist("meet") == true then
+        if char_ini:line_exist("meet", "enabled") == true then
+                xr_motivator.storage[object:id()].meet.enabled = char_ini:r_bool("meet", "enabled")
+        end
+        if char_ini:line_exist("meet", "noweap") == true then
+                xr_motivator.storage[object:id()].meet.noweap = char_ini:r_bool("meet", "noweap")
+        end
+    end
+end
+
+function override_meet(npc, flag)
+	xr_motivator.storage[npc:id()].meet.over = flag
+end
+
+--' ВНИМАНИЕ: Эта функция вызывается и для сталкеров, и для монстров!
+function dialog_manager_reset(npc, stype)
+	printf("*DIALOGS*: dialog_manager_reset: npc:name='%s'", npc:name())
+	if stype == modules.stype_stalker or stype == modules.stype_mobile then
+		--' Смена стартового диалога
+		local overrides = xr_logic.generic_scheme_overrides(npc)
+		if overrides ~= nil then
+			if overrides.meet_talk_enabled then
+--				printf("*DIALOGS*: Enable talk", overrides.meet_dialog)
+				npc:enable_talk()
+			else
+--				printf("*DIALOGS*: Disable talk", overrides.meet_dialog)
+				npc:disable_talk()
+			end
+
+			if overrides.meet_dialog then
+--				printf("*DIALOGS*: Set start dialog %s", overrides.meet_dialog)
+				npc:set_start_dialog(overrides.meet_dialog)
+			else
+--				printf("*DIALOGS*: Restore start dialog")
+				npc:restore_default_start_dialog()
+			end
+		else
+--			printf("*DIALOGS*: SCHEME HAS NO OVERRIDES: Restore start dialog")
+			npc:restore_default_start_dialog()
+--			printf("*DIALOGS*: SCHEME HAS NO OVERRIDES: Disable talk", overrides.meet_dialog)
+			npc:disable_talk()
+		end
+	end
+end
+
+--' Считывание доступных диалогов игрока.
+function set_actor_dialogs(npc, ini, name, dialog_section)
+	printf("*ACTOR_DIALOGS*")
+	if dialog_section == nil then return end
+	printf("*ACTOR_DIALOGS*: set_actor_dialogs: npc_name='%s' section='%s'", npc:name(), dialog_section)
+	
+	local actor_dialogs_string = utils.cfg_get_string(ini, dialog_section, "id", npc, false, "")
+	if actor_dialogs_string ~= nil then
+		printf("*ACTOR_DIALOGS*: actor_dialogs=%s", actor_dialogs_string)
+		--' Создаем в массиве запись где будут храниться считанные диалоги.
+		xr_motivator.storage[npc:id()].actor_dialogs = parse_names(actor_dialogs_string)
+	else
+		printf("*ACTOR_DIALOGS*: actor_dialogs=nil")
+	end
+	
+	local actor_disable = utils.cfg_get_string(ini, dialog_section, "disable", npc, false, "")
+	if actor_disable ~= nil then
+		printf("*ACTOR_DIALOGS*: actor_disable=%s", actor_disable)
+		--' Создаем в массиве запись где будут храниться считанные диалоги.
+		xr_motivator.storage[npc:id()].actor_disable = parse_names(actor_disable)
+	else
+		printf("*ACTOR_DIALOGS*: actor_disable=nil")
+	end
+end

@@ -1,0 +1,105 @@
+[grenade_f1]
+grenade_remove_time	= 3600000
+
+GroupControlSection	= spawn_group
+discovery_dependency = 
+$spawn 				= "weapons\grenades\f1"
+$prefetch			= 128
+class				= G_F1
+cform				= skeleton
+visual				= weapons\grenade\wpn_f_1.ogf
+inv_name			= F1
+inv_name_short		= 
+inv_weight			= 1.0	;.1
+description			= enc_weapons1_grenade-f1
+
+ef_weapon_type		= 10
+
+inv_grid_width		= 1
+inv_grid_height		= 1
+inv_grid_x			= 9
+inv_grid_y			= 9
+
+animation_slot		= 7
+single_handed				= 1
+
+slot				= 3
+hud					= grenade_f1_hud
+force_min			= 10	; ~30% от максимума
+force_const			= 20
+force_max			= 30
+force_grow_speed	= 30
+
+destroy_time		= 3500
+
+cost				= 80
+
+;-----------------------------------------------------------------------------------
+blast				= 250;150
+blast_r				= 8;5
+blast_impulse		= 350
+;delete
+blast_impulse_factor = 1
+
+frags				= 35;25
+frags_r				= 25
+frag_hit			= 50
+frag_hit_impulse	= 250
+
+hit_type_blast		= explosion
+hit_type_frag		= fire_wound
+
+up_throw_factor		 = 1.5;1.2
+;-----------------------------------------------------------------------------------
+
+
+explode_particles		 = explosions\explosion_01b_hot
+
+
+light_color		         = 0.6,0.5,0.3
+light_range		         = 30.0
+light_time 		         = 0.35
+
+;трассы от осколков
+tracer_head_speed	     = 50
+tracer_max_length		= 3
+
+explode_duration		 = 5		;подолжительность взрыва (с)
+
+
+;звуки
+snd_explode = weapons\f1_explode
+snd_checkout = weapons\generic_checkout
+
+position_offset			 = -0.053,-0.089,0.0
+angle_offset			 = 0,0,0
+
+;position_offset		 = -0.04,-0.08,0.0
+;angle_offset			 = 1.570790,1.570790,3.92699 ;90,90,225 ;считается в радианах Angle*PI/180
+;angle_offset			 = 0,0,0 					 ;0,0,0 ;считается в радианах Angle*PI/180
+
+throw_point				 = 0,0.3,0.2
+throw_dir				 = 0,0,1
+
+wm_size                  = 0.1
+
+[grenade_f1_hud]
+fire_point          = 0.05, 0.0, 0.1
+fire_bone           = grenade_0
+
+orientation         = 0,0,0
+position            = 0,0,0.1
+
+visual              = weapons\grenade\wpn_f_1_hud.ogf
+
+throw_point				 = 0.0,0.4,0.3
+throw_dir				 = 0,0,1
+
+anim_show			= draw
+anim_hide			= holster_0
+anim_idle			= idle_0
+anim_playing		= idle_01
+anim_throw_begin	= attack_0_begin
+anim_throw_idle		= attack_0_idle
+anim_throw_act		= attack_0_act	
+anim_throw_end		= attack_0_end

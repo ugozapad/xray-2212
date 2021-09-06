@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding="windows-1251"?>
+
+<game_information_portions>
+	<info_portion id="garbage_meetstalker_start">
+		<location>
+			<level>l02_garbage</level>
+			<object>100</object>
+			<icon name="" x="1" y="0" width="1" height="1" r="238" g="155" b="23" marker="1"></icon>
+			<text>Встретиться с Серым.</text>
+		</location>
+		<task>garbage_meet_stalker</task>	
+	</info_portion>
+	<info_portion id="garbage_meetstalker_done">
+		<disable>garbage_meetstalker_start</disable>
+	</info_portion>
+	<info_portion id="garbage_meetstalker_die">
+		<disable>garbage_meetstalker_start</disable>
+	</info_portion>
+
+
+	<!-- Раш монстров -->
+	<info_portion id="gar_dolg_help_kill_rush"></info_portion>
+	<info_portion id="gar_dolg_help_kill_rush_good"></info_portion>
+	<info_portion id="gar_dolg_help_kill_rush_perfect"></info_portion>	
+	<info_portion id="gar_dolg_warning_done"></info_portion>
+	<info_portion id="gar_dolg_access_rostok"></info_portion>
+
+
+  <!-- Драм-момент -->
+  <info_portion id="gar_dm_novice_asked_for_help"></info_portion>
+  <info_portion id="gar_dm_bandit_warned_plr"></info_portion>
+  <info_portion id="gar_dm_bandit1_dead"></info_portion>
+  <info_portion id="gar_dm_bandit2_dead"></info_portion>
+  <info_portion id="gar_dm_bandit3_dead"></info_portion>
+  <info_portion id="gar_dm_novice_dead"></info_portion>
+  <info_portion id="gar_dm_bandit2_warn_plr"></info_portion>
+  <info_portion id="gar_dm_bandit2_warned_plr"></info_portion>
+  <info_portion id="gar_dm_bandit1_demand"></info_portion>
+  <info_portion id="gar_dm_bandit2_demand"></info_portion>
+  <info_portion id="gar_dm_bandit3_demand"></info_portion>
+  <info_portion id="gar_dm_newbie_no_money"></info_portion>
+
+  <info_portion id="gar_monsters_rush_wave1"></info_portion>
+  <info_portion id="gar_monsters_rush_wave2"></info_portion>
+  <info_portion id="gar_monsters_rush_wave3"></info_portion>
+</game_information_portions>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="gar_dolg_about_0">
+        <text>Can you tell something interesting?</text>
+    </string>
+    <string id="gar_dolg_about_1">
+        <text>I have a lot to tell. But possibly you’ve heard of that kinda vermin like mutants a lot. I can acquaint you with us, “Duty” grouping. But don’t you dare to ask me about those morons from “Freedom”.</text>
+    </string>
+    <string id="gar_dolg_about_2">
+        <text>Tell me about your grouping.</text>
+    </string>
+    <string id="gar_dolg_about_21">
+        <text>We’ve been here from the very beginning. The grouping itself has been found by the toughies from one of special task forces, sent in the Zone to investigate the full picture of its appearance. We got into a serious scrape there. After the half of our troops has perished under the terrible circumstances, the ones survived swore that wouldn’t leave until they coped with the task.</text>
+    </string>
+    <string id="gar_dolg_about_3">
+        <text>You’ve mentioned about the “Freedom” morons?</text>
+    </string>
+    <string id="gar_dolg_about_31">
+        <text>Total imbeciles and bloody scums. They can’t get it clear that the Zone is the world’s pest place. Besides they want to stretch the Zone all over the world, to the every single distant place. They may use all the possible and impossible means for their goal. I can’t wait when we finish them.</text>
+    </string>
+    <string id="gar_dolg_about_4">
+        <text>Thanks.</text>
+    </string>
+    <string id="gar_dolg_acces_0">
+        <text>Why don’t you let anyone pass to the North?</text>
+    </string>
+    <string id="gar_dolg_acces_1">
+        <text>Cos we don’t need that rabble at “Rostok”.</text>
+    </string>
+    <string id="gar_dolg_acces_2">
+        <text>What’s there on the “Rostok”?</text>
+    </string>
+    <string id="gar_dolg_acces_21">
+        <text>It concerns you not! You’ll learn when you come there.</text>
+    </string>
+    <string id="gar_dolg_acces_3">
+        <text>Listen, mate. I urgently need to go further. You understand?</text>
+    </string>
+    <string id="gar_dolg_acces_31">
+        <text>Too insolent for the newbie. Or is it kinda gentle hint?! Well it may cost you about 500 rubles to get through.</text>
+    </string>
+    <string id="gar_dolg_acces_311">
+        <text>Now we are talking. Take these money.</text>
+    </string>
+    <string id="gar_dolg_acces_3111">
+        <text>Deal, you can pass.</text>
+    </string>
+    <string id="gar_dolg_acces_312">
+        <text>No thanks, I’ll make it myself.</text>
+    </string>
+    <string id="gar_dolg_acces_3121">
+        <text>Hehe, what a greedy one you are. Well, try.</text>
+    </string>
+    <string id="gar_dolg_acces_4">
+        <text>Thanks.</text>
+    </string>
+    <string id="gar_dolg_guard_start_2">
+        <text>Stop! You can’t go further! Newbies have nothing to deal with “Rostok”.</text>
+    </string>
+    <string id="gar_dolg_guard_start_3">
+        <text>You’re not a bad guy, go ahead.</text>
+    </string>
+    <string id="gar_dolg_start_2">
+        <text>Hmm… What do you want?</text>
+    </string>
+    <string id="gar_dolg_start_3">
+        <text>Hi, I’m glad that you also don’t like mutants. It was fun. You’re decent guy. We’ll admit you to the North.</text>
+    </string>
+    <string id="gar_dram_novice_level_0">
+        <text>Can you tell something about the Dump?</text>
+    </string>
+    <string id="gar_dram_novice_level_1">
+        <text>Well there is nothing really essential in there. Dump as it is. Unless some maniacal bastard on the bridge that shoots everything that moves. It’s said that his head is wanted for reward. Moreover the northern road to “Rostok” is guarded by the “Duty” soldiers. You’d better don’t deal with those, guys in “Duty” a really gloomy ones. That’s it, I guess.</text>
+    </string>
+    <string id="gar_dram_novice_level_2">
+        <text>Noteworthy information, thanks.</text>
+    </string>
+    <string id="gar_dramm_novice_start_2">
+        <text>Thanks for saving. Now I’m in debt. How can I thank you… O! Information costs money, so listen. I’ve seen monolithians while moving from the Dark Valley. Morose guys in brown uniform. I’ve never noticed them coming to the border so closely. And the bandits who arranged big base in there, I’ve hardly made it to escape. So be careful, if you wander there.</text>
+    </string>
+    <string id="gar_dramm_novice_start_3">
+        <text>Ho ho! Hi, mate! Thousand thanks for saving my ass. I promise I’ll requite like for like.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_0">
+        <text>Are you gathering here for no particular reason or what?</text>
+    </string>
+    <string id="gar_kran_stalkers_about_1">
+        <text>Bandits have plagued nearly everyone. Now I’m prepared, so lets move and give those bandits a rape session.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_2">
+        <text>Can I go with you?</text>
+    </string>
+    <string id="gar_kran_stalkers_about_21">
+        <text>No its personal. No strangers, sorry.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_3">
+        <text>Heard anything on the Gunslinger?</text>
+    </string>
+    <string id="gar_kran_stalkers_about_31">
+        <text>Yeah, but not too much. It’s said that he made it to the center of the Zone.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_4">
+        <text>Haven’t you been acquainted with stalker Seriy.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_41">
+        <text>I think that I’ve heard that he was waiting for someone on garage. But be careful – bridge near the crushed truck with corpses is occupied my that maniac bastard.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_411">
+        <text>What is that maniac?</text>
+    </string>
+    <string id="gar_kran_stalkers_about_4112">
+        <text>Ordinary Zone’s loony. Shoots everyone on sight. No chance to approach, cos of the immediate fire.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_412">
+        <text>What kind of a corpse truck?</text>
+    </string>
+    <string id="gar_kran_stalkers_about_4121">
+        <text>Recently in stormy night the truck has crushed here. Overloaded with stalkers’ corpses. Where they were taken to and from stays unclear.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_413">
+        <text>Fine. I’ll be cautious.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_4131">
+        <text>Please do. Caution hasn’t yet harmed anyone.</text>
+    </string>
+    <string id="gar_kran_stalkers_about_5">
+        <text>Thanks.</text>
+    </string>
+    <string id="gar_seriy_help_0">
+        <text>Wait, Seriy, stand firm!</text>
+    </string>
+    <string id="gar_seriy_help_1">
+        <text>I am, I am. Got a med kit?</text>
+    </string>
+    <string id="gar_seriy_help_2">
+        <text>Sure. Take it.</text>
+    </string>
+    <string id="gar_seriy_help_21">
+        <text>Oh, thanks. I want to share secret with you. Take this flash drive, information on it will help you to get to the center of Zone.</text>
+    </string>
+    <string id="gar_seriy_help_3">
+        <text>Well.. Seriy.. I think it’s just not your day…</text>
+    </string>
+    <string id="gar_seriy_help_31">
+        <text>Dammit…</text>
+    </string>
+    <string id="gar_seriy_start_2">
+        <text>I’ve been shot… Shit! I’m unwell…</text>
+    </string>
+    <string id="gar_seriy_start_3">
+        <text>Hello, mate. Thanks for you help then.</text>
+    </string>
+    <string id="gar_stalker_about_level_0">
+        <text>Can you tell about the local?</text>
+    </string>
+    <string id="gar_stalker_about_level_1">
+        <text>Well, listen. We’re now standing at big fetid dump. All the bloody radioactive refuse and debris has been taken here after the accident in 1986. So it’s totally filled with that rubbish, above and beyond the anomalies here and there among the trash. That’s why the only one you can meet here is an ordinary newbies. Why the newbies gather bandits around them. Thus it’s better for you not to stay for long here. Further to the North – radioactive hot beds, trespassing without protection is fatal. If you go to the North, you’ll find the abandoned “Rostok” factory, stalkers’ bar in there you’ll find it with ease. Dark Valley to the East, gloomy, foggy place. “Agroprom” territory to the West. I’ll mark places on your map where you can get safely to.</text>
+    </string>
+</string_table>

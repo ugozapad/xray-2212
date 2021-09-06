@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="storyline_escape_eliminate_gunslinger">
+        <text>Kill Gunslinger.</text>
+    </string>
+    <string id="storyline_escape_find_gunslinger">
+        <text>Find Gunslinger.</text>
+    </string>
+    <string id="tutorial_find_artefact">
+        <text>Find artifact.</text>
+    </string>
+    <string id="tutorial_find_artefact_0">
+        <text>Find your first artifact.</text>
+    </string>
+    <string id="tutorial_find_artefact_1">
+        <text>Find the first artifact.</text>
+    </string>
+    <string id="tutorial_find_artefact_2">
+        <text>Deliver the artifact to the trader.</text>
+    </string>
+    <string id="tutorial_help_wounded">
+        <text>Help the wounded.</text>
+    </string>
+    <string id="tutorial_help_wounded_0">
+        <text>Find the person who survived after the firing and help him.</text>
+    </string>
+    <string id="esc_trader_need_electra_artefact">
+        <text>Find and bring artifact from gravity anomaly.</text>
+    </string>
+    <string id="esc_trader_need_electra_artefact_0">
+        <text>Trader needs any artifact from gravity anomaly.</text>
+    </string>
+    <string id="esc_trader_need_electra_artefact_1">
+        <text>Find artifact. You can get it, if you lure someone into the anomaly.</text>
+    </string>
+    <string id="esc_trader_need_electra_artefact_2">
+        <text>Bring artifact to the trader.</text>
+    </string>
+    <string id="esc_help_wounded_from_raid">
+        <text>Deliver the information to the trader.</text>
+    </string>
+    <string id="esc_help_wounded_from_raid_0">
+        <text>Help the trader obtain the information on the reconnaissance.</text>
+    </string>
+    <string id="esc_help_wounded_from_raid_1">
+        <text>Meet the stalker called “Fox”.</text>
+    </string>
+    <string id="esc_help_wounded_from_raid_2">
+        <text>Deliver the information from the trader to “Fox”.</text>
+    </string>
+    <string id="esc_blockpost_case_to_trader">
+        <text>Steal the case from army post.</text>
+    </string>
+    <string id="esc_blockpost_case_to_trader_0">
+        <text>Steal case with important documents from army post commander.</text>
+    </string>
+    <string id="esc_blockpost_case_to_trader_1">
+        <text>Steal the case from army post.</text>
+    </string>
+    <string id="esc_blockpost_case_to_trader_2">
+        <text>Bring case to the trader.</text>
+    </string>
+    <string id="esc_dinamit_to_volk">
+        <text>Get dynamite for the Wolf.</text>
+    </string>
+    <string id="esc_dinamit_to_volk_0">
+        <text>Collect dynamite from the bandits on the factory and take it to the Wolf.</text>
+    </string>
+    <string id="esc_dinamit_to_volk_1">
+        <text>Meet with the Wolf’s team.</text>
+    </string>
+    <string id="esc_dinamit_to_volk_2">
+        <text>Find the dynamite on the factory</text>
+    </string>
+    <string id="esc_dinamit_to_volk_3">
+        <text>Deliver the dynamite to the Wolf.</text>
+    </string>
+    <string id="garbage_meet_stalker">
+        <text>Meet stalker on the dump.</text>
+    </string>
+    <string id="garbage_meet_stalker_0">
+        <text>Meet stalker in the garage on the dump and get information about Gunslinger`s clan.</text>
+    </string>
+    <string id="agroprom_get_military_documents">
+        <text>Get militaries’ documents from “Agroprom” research institute.</text>
+    </string>
+    <string id="agroprom_get_military_documents_0">
+        <text>Get military documents from “Agroprom” and deliver them to barman in stalkers’ bar.</text>
+    </string>
+    <string id="agroprom_get_military_documents_1">
+        <text>Get military documents from “Agroprom” research institute.</text>
+    </string>
+    <string id="agroprom_get_military_documents_2">
+        <text>Deliver the documents to barman in Stalker bar.</text>
+    </string>
+    <string id="agr_meet_krot_band">
+        <text>Meet Gunslinger's grouping.</text>
+    </string>
+    <string id="agr_meet_krot_band_0">
+        <text>You found out, that some stalkers gather on the abandoned factory near “Agroprom” institute. They may lead you to Gunslinger.</text>
+    </string>
+    <string id="agroprom_find_gunslinger_cache">
+        <text>Find the secret cache of Gunslinger’s grouping.</text>
+    </string>
+    <string id="agroprom_find_gunslinger_cache_0">
+        <text>Find and search the cache of Gunslinger’s clan. There you may get information, where to find Gunslinger himself.</text>
+    </string>
+    <string id="agroprom_find_stalker_phantom">
+        <text>Найти Призрака.</text>
+    </string>
+    <string id="agroprom_find_stalker_phantom_0">
+        <text>Призрак точно знает, где найти Стрелка.</text>
+    </string>
+    <string id="esc_wounded_to_trader_gift">
+        <text>Hand over the package to the merchant.</text>
+    </string>
+    <string id="esc_wounded_to_trader_gift_0">
+        <text>Hand over the package to the trader. It may help you.</text>
+    </string>
+</string_table>

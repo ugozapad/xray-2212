@@ -1,0 +1,185 @@
+[helicopter]
+GroupControlSection		= spawn_group
+$spawn					= "vehicles\helicopter"
+$prefetch				= 1
+cform                   = skeleton
+class					= C_HLCPTR
+visual                  = physics\vehicles\mi24\veh_mi24_u_01.ogf
+
+//пфраметры построения пути
+path_linear_acc_fw				= 4; 3;5; 3.0 ;m/s  ; линейное ускорение при разгоне
+path_linear_acc_bk				= 0.5; 3;  3.5;3 ;8.0 ;m/s	; линейное ускорение торможения
+
+path_angular_sp_pitch			= 0.25 ;0.35; 0.65; 0.85; 0.45		; скорость изменения высоты пути
+path_angular_sp_heading			= 0.7;0.75; 0.85 0.95 0.55; 0.65  ;0.55; 0.45; 0.35; 0.4		    ; угловая скорость пути
+
+//пфраметры наклона модели 
+model_angular_sp_bank			= 0.45;0.35; 0.45; 0.35; 0.4 ;0.35    ; скорость поворота модели по оси Z (как быстро модель повернется по курсу движения с учетом угловой скорости)
+model_angular_sp_pitch			= 0.25;0.4; 0.55; 0.35; 0.3     ; скорость поворота модели по оси X в зависимости от текущей линейной скорости
+model_pitch_koef				= 0.018 ;0.020; 0.015; 0.009;0.007   ; коэф наклона модели по оси X в зависимости от текущей линейной скорости
+model_bank_koef					= 0.02;0.02    ; коэф наклона модели по оси Z в зависимости от текущих линейной и угловой скоростей
+on_point_range_dist				= 10.0    ; служебная информация
+smoke_particle						= damage_fx\heli_burn			;партиклы при ранении
+explode_particle					= explosions\expl_mushroom_01	;партиклы при взрыве
+explode_sound						= weapons\heli_explosion		;звук собственного взрыва
+snd_shoot_rocket					= weapons\heli_rocket_shoot		;звук выстрела ракетой   
+
+light_range							= 10.0
+light_brightness					= 5.0
+light_color							= 0.9,0.9,0.5
+light_color_animmator				= koster_00
+//
+time_delay_before_start		= 60					;sec ----не исп
+time_patrol_period			= 12000					;sec ----не исп
+time_delay_between_patrol	= 60					;sec ----не исп
+velocity					= 25.0					;m/sec   скорость, с которой атаковать врага
+attack_velocity				= 15.0; 15; 10					;m/sec   скорость, с которой патрулировать
+altitude					= 50	;20.0			;m		 высота, на которой патрулировать
+attack_altitude				= 30;15 20	;20.0		;m		 высота, на которой атаковать врага
+max_key_dist				= 10.0 ;15.0                  ;      -----не исп
+
+altitude_korridor			= 0.1 ;0.0		;не ниже 1/10 высоты уровня         ------не исп
+x_level_bound				= 50;0;230.0	; граница (не долетать) до края уровня при патрулировании ------не исп
+z_level_bound				= 50;0;400.0	; ------не исп
+
+use_rocket					= true			;              использовать ракеты при атаке
+use_mgun					= true			;              использовать пулемет при атаке
+min_mgun_attack_dist		= 20;15.0	;m   мин расстояние при котором можно исп пулемет
+max_mgun_attack_dist		= 100;300.0 ;m   макс расстояние при котором можно исп пулемет
+min_rocket_attack_dist		= 50;15.0	;m   мин расстояние при котором можно исп ракеты
+max_rocket_attack_dist		= 200;150.0 ;m   макс расстояние при котором можно исп ракеты
+time_between_rocket_attack	= 500 ; 1500 ; msec  задержка между ракетами
+syncronize_rocket			= false; true        пускать ракеты парами или по очереди (лев-прав-лев-прав)
+
+death_angular_vel			= 3.0,3.0,0.0  ; при гибели в воздухе дать угловую скорость модели      
+death_lin_vel_koeff			= 1.2          ; при гибели в воздухе умножить собственную лин скорость на коэфф
+
+
+;------------------------------все для пулемета
+fire_dispersion_base	= 4   ; 2
+tracer_head_speed		= 150 ; 200
+tracer_trail_scale		= 1.25;0.75
+tracer_start_length		= 5;1
+tracer_width			= 0.25;0.1
+rpm                     = 400
+hit_power               = 25;5
+hit_impulse		 		= 220
+fire_distance           = 500
+bullet_speed			= 500			;начальная скорость пули
+light_color				= 0.9,0.8,0.4
+light_range				= 5
+light_var_color			= 0.05
+light_var_range			= 0.5
+light_time 				= 0.2
+ammo_class				= ammo_12x76_zhekan ;ammo_12x70_buck
+flame_particles		    = weapons\generic_weapon08
+;smoke_particles		    = weapons\generic_shoot_00
+shell_point				= 0.05, 0.22, 0.06
+shell_particles			= weapons\generic_shells
+snd_shoot				= weapons\pkm_shot
+
+
+;------------------------------все для ракетницы
+rocket_class			= helicopter_missile ;wpn_rpg7_missile 
+launch_speed			= 50;60;76 500
+
+;------------------------------коэффициенты иммунитета 
+burn_immunity			= 0.8	
+strike_immunity			= 0.0 ;0.7
+shock_immunity			= 0.0 ;1.0
+wound_immunity			= 0.0 ;0.15
+radiation_immunity		= 0.0 ;0.2
+telepatic_immunity		= 0.0 ;1.0
+chemical_burn_immunity	= 0.0 ;0.9
+fire_wound_immunity		= 0.45 ;0,35;0.1;0.05
+explosion_immunity		= 1
+
+
+[helicopter_missile]
+GroupControlSection		= spawn_group
+discovery_dependency	= 
+visual                  = weapons\rpg_7\wpn_rpg_7_grenade.ogf
+cform                   = skeleton
+class                   = G_RPG7
+
+inv_weight				= 0
+
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 0
+inv_grid_y				= 0
+
+cost					= 200
+;---------------------------------------------------------------
+blast				= 520;120
+blast_r				= 15;10
+blast_impulse		= 550;320
+;delete
+blast_impulse_factor = 1
+
+frags				= 20
+frags_r				= 15
+frag_hit			= 50
+frag_hit_impulse	= 300
+
+hit_type_blast		= explosion
+hit_type_frag		= fire_wound
+
+up_throw_factor		= 1.5;1.3
+;---------------------------------------------------------------
+
+wm_size             = 0.3
+
+
+light_color		    = 0.9,0.9,0.5
+light_range		    = 30.0
+light_time 		    = 0.4
+
+
+ph_mass				= 7
+engine_f			= 530
+engine_u			= 90
+
+jump_height			= 0
+
+explode_particles	= explosions\explosion_heli_rocket
+
+
+;трассы от осколков
+tracer_head_speed	= 200
+tracer_max_length	= 3
+
+explode_duration	 = 2		;подолжительность взрыва (с)
+
+;звуки
+snd_explode			= weapons\rpg7_explode
+snd_fly_sound		= weapons\rocket_fly
+
+;свойства которые читаются, но не используются (надо убрать)
+inv_name		= "VOG-25"
+inv_name_short	= "VOG-25"
+inv_weight		= .2
+
+inv_grid_width		= 1
+inv_grid_height		= 1
+inv_grid_x			= 19
+inv_grid_y			= 9
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Свойства CustomRocket
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+engine_present		= true		;присутствует ли в ракете двигатель
+engine_work_time	= 5000		;время работы двигателя (в милисекундах)
+engine_impulse		= 1000		;
+engine_impulse_up	= 137.34 ;215.58;137.34 = 2*9.81*7 - значение этого параметра (который является некой подъемной силой, вопреки названию),
+									;при котором ракета массой 7кг не опускается под дейсвием 
+									;гравитации. 2*9.8=19.62 - ускорение свободного падения в мире сталкеров
+									;при меньших значениях ракета будет опускаться, при больших подниматься
+
+lights_enabled = TRUE			;свет вокруг ракеты, во время полета
+trail_light_color = 0.7,0.6,0.3
+trail_light_range = 20.0
+
+engine_particles = weapons\rpg_trail_01
+;fly_particles	 = weapons\rpg_trail_01
+

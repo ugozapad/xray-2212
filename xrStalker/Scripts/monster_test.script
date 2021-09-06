@@ -1,0 +1,51 @@
+--------------------------------------------------------------------------------
+-- Author:	Jim 
+-- Desc:	script for monster tests
+-- Updated:	21 dec 2004	
+--------------------------------------------------------------------------------
+
+function set_action(obj)
+	action (obj, object(object.turn_on), cond(cond.time_end, 1000))
+	action (obj, look(patrol("way"):point(0), 0.6, 0.6), cond (cond.look_end))
+	action (obj, look(patrol("way"):point(1), 0.6, 0.6), cond (cond.look_end)) 
+	action (obj, look(level.actor():position(), 0.6, 0.6), cond (cond.look_end)) 
+	action (obj, object(object.turn_off), cond(cond.time_end, 1000))
+	action (obj, look(patrol("way"):point(0), 0.6, 0.6), cond (cond.look_end))
+	action (obj, look(patrol("way"):point(1), 0.6, 0.6), cond (cond.look_end)) 
+end
+
+
+
+function main()
+	local obj			= get_level_object("search")
+	local monster		= get_level_object("monster")
+
+	monster:script		( true, script_name() )
+
+	while true do
+		
+		action(	monster, 
+				move( move.run_fwd, patrol( "way2", patrol.start, patrol.continue) ),
+				cond( cond.time_end, 10000 )
+		)
+		
+		while monster:action() do 
+			wait() 
+		end
+		
+		
+		obj:script			( true, script_name() )
+
+		set_action			(obj)
+		
+		while obj:action() do 
+			wait() 
+		end
+
+		obj:script			( false, script_name() )		
+
+	end
+	
+	monster:script		( false, script_name() )
+
+end

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<string_table>
+    <string id="Equipment">
+        <text>empty text</text>
+    </string>
+    <string id="Items">
+        <text>empty text</text>
+    </string>
+    <string id="Med">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_med">
+        <text>empty text</text>
+    </string>
+    <string id="Capsule">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_capsule">
+        <text>empty text</text>
+    </string>
+    <string id="Detect1">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_detect1">
+        <text>empty text</text>
+    </string>
+    <string id="Detect2">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_detect2">
+        <text>empty text</text>
+    </string>
+    <string id="Detect3">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_detect3">
+        <text>empty text</text>
+    </string>
+    <string id="Detect4">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_detect4">
+        <text>empty text</text>
+    </string>
+    <string id="Health">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_health">
+        <text>empty text</text>
+    </string>
+    <string id="Diagnost">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_items_diagnost">
+        <text>empty text</text>
+    </string>
+    <string id="Armors">
+        <text>empty text</text>
+    </string>
+    <string id="Armor1">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_armor1">
+        <text>empty text</text>
+    </string>
+    <string id="Sci1">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_sci1">
+        <text>empty text</text>
+    </string>
+    <string id="Sci2">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_sci2">
+        <text>empty text</text>
+    </string>
+    <string id="Arm-light">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_arm-light">
+        <text>empty text</text>
+    </string>
+    <string id="Arm-medium">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_arm-medium">
+        <text>empty text</text>
+    </string>
+    <string id="Arm-heavy">
+        <text>empty text</text>
+    </string>
+    <string id="enc_equipment_armors_arm-heavy">
+        <text>empty text</text>
+    </string>
+</string_table>

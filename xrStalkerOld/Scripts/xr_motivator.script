@@ -1,0 +1,279 @@
+module ("xr_light")
+----------------------------------------------------------------------------------------------------------------------
+--  автор: Диденко Руслан (Stohe)
+--  TODO:
+----------------------------------------------------------------------------------------------------------------------
+storage = {}
+memtsg = {} --' временная таблица
+lasthealth = 0
+lastime = nil
+
+----------------------------------------------------------------------------------------------------------------------
+--Motivator binder
+----------------------------------------------------------------------------------------------------------------------
+class "motivator_binder" (object_binder)
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:__init (obj) super(obj)
+    self.torch = xr_light.torch_light (obj)
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:extrapolate_callback(cur_pt)
+	if self.st.active_section ~= nil then
+		printf("___ACTIVE_SECTION___")
+		xr_logic.extrapolate_callback_event(self.object, self.st[self.st.active_scheme])
+	end
+	
+	printf("_bp: motivator_binder: extrapolate_callback: cur_pt = %d", cur_pt)
+	if patrol(self.object:patrol()):flags(cur_pt):get() == 0 then
+		printf("_bp: motivator_binder: extrapolate_callback: true")
+		return true
+	end
+	printf("_bp: motivator_binder: extrapolate_callback: false")
+	return false
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:reinit()
+    object_binder.reinit(self)
+    printf("motivator_binder:reinit(): self.object:name()='%s'", self.object:name())
+    self.object:set_hear_callback(hear_callback)
+    self.object:set_patrol_extrapolate_callback(motivator_binder.extrapolate_callback, self)
+        
+    local char_ini = self.object:spawn_ini()
+
+    --' Bind other scripts
+    printf("Base evaluator ID %d", stalker_ids.property_script)
+    printf("Base action ID %d", stalker_ids.action_script)
+    self.object:disable_talk()
+
+    --' загрузка озвучки
+    xr_sounds.load_sounds (self.object)
+    xr_sound.load_sound(self.object)
+----------------------------------------------------------------------------------------------------------------------
+-- Общие скрипты
+----------------------------------------------------------------------------------------------------------------------
+    xr_motivator.storage[self.object:id()] = {  followers = {} }
+    self.st = xr_motivator.storage[self.object:id()]
+
+    --' Положения тела
+    self.st.state = xr_state.body_state(self.object)
+
+    --' удар в морду
+    xr_punch.add_to_binder (self.object)   
+
+    --' Настройка схемы реакции
+	self.st.reactions = {
+		enabled = true,
+		time_wait = 5*60*1000,
+		evn = xr_reactions.events(self.object),
+		obj = {position = nil,
+				id = nil,
+				type = nil,
+				time = nil,
+				visibility = nil
+			},
+		rules = {}
+    }
+    xr_reactions.add_to_binder(self.object, char_ini)
+    --' Настройка встречи
+    self.st.meet = {
+			Buyer = nil,
+            Seller = self.object,
+            begin_wait_to_see = { time = 300,
+                                begin = nil },
+            enabled = true,
+            over = false,
+            actor = nil,
+            noweap = false,			--' игнорируем наличие оружия у актора
+            distance = 15,			--' расстояние, в пределах которого мы реагируем
+            shoot_distance = 5		--' расстояние, в пределах которого мы стреляем
+        }  
+	xr_meet.add_to_binder(self.object, char_ini)
+	--' Компаньон
+	xr_assistance.add_to_binder(self.object)		
+//	--' помощник, мля !!!
+//	xr_motivator.storage[self.object:id ()].sos = {
+//		enabled = false,
+//		npc = nil,
+//		initialized = false,
+//		code = 0,
+//		need_follow = false
+//    }
+//	xr_sos.add_to_binder(self.object, char_ini)
+	military_radio.add_to_binder (self.object, char_ini)
+
+	--xr_combat.set_combat_checker(self.object, char_ini, "combat", "combat")
+----------------------------------------------------------------------------------------------------------------------
+-- Скрипты, управляемые xr_logic
+----------------------------------------------------------------------------------------------------------------------
+	xr_logic.enable_scripts(self.object, char_ini, modules.stype_stalker)
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:net_spawn(sobject)
+	printf("motivator_binder:net_spawn(): self.object:name()='%s'", self.object:name())
+	local sim = alife()
+	if sim ~= nil then 
+		xr_spawner.spawn(sobject)
+	end
+	return object_binder.net_spawn(self, sobject)
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:net_destroy()
+	printf("motivator_binder:net_destroy(): self.object:name()='%s'", self.object:name())
+	xr_motivator.storage[self.object:id()] = nil
+	object_binder.net_destroy(self)
+end
+----------------------------------------------------------------------------------------------------------------------
+local be
+function motivator_binder:update(delta)
+	object_binder.update(self, delta)
+	self.torch:update()
+    
+	--' Проверка ТИМ СКВАД ГРУП
+	--[[
+	if memtsg[self.object:id()] == nil then
+		printf("[TSG] Object: %s t:%d s:%d g:%d", self.object:name(),
+			self.object:team(),
+			self.object:squad(),
+			self.object:group())
+		memtsg[self.object:id()] = self.object:id()
+	end
+	--]]
+
+	--' Проверка потери жизни
+	--[[
+	if lasttime == nil or
+	   game.get_game_time():diffSec(lasttime) > 1 
+	then
+		printf("%f * %f", self.object.health, self.object.health - lasthealth)
+		lasthealth = self.object.health
+		lasttime = game.get_game_time()
+	end
+	--]]
+
+	--' Проверка врагов
+	--[[
+	be = self.object:best_enemy()
+	if be ~= nil then
+		printf("ENEMYCHECK: %s[%s, %s, %s] -> %s[%s, %s, %s]",
+			self.object:name(),
+			self.object:team(),
+			self.object:squad(),
+			self.object:group(),
+			be:name(), 
+			be:team(), 
+			be:squad(), 
+			be:group()
+		)
+	end
+	--]]
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:reload(section)
+	object_binder.reload(self, section)
+	printf("motivator_binder:reload(): self.object:name()='%s'", self.object:name())
+	self.object:set_pda_callback(pda_callback)
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:net_save_relevant()
+	--printf("motivator_binder:net_save_relevant(): self.object:name()='%s'", self.object:name())
+	return true
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:save(packet)
+	printf("motivator_binder:save(): self.object:name()='%s'", self.object:name())
+	object_binder.save( self, packet )
+	-- Logic:
+	local npc_id = self.object:id()
+	local st = xr_motivator.storage[npc_id]
+
+	if st.active_section then
+		packet:w_stringZ(st.active_section)
+	else
+		packet:w_stringZ("")
+	end
+
+	if st.active_scheme then
+		packet:w_stringZ(st.active_scheme)
+	else
+		packet:w_stringZ("")
+	end
+	
+	if st.gulag_name then
+		packet:w_stringZ(st.gulag_name)
+	else
+		packet:w_stringZ("")
+	end
+
+	packet:w_s32(st.stype)
+end
+----------------------------------------------------------------------------------------------------------------------
+function motivator_binder:load(reader)
+	printf("motivator_binder:load(): self.object:name()='%s'", self.object:name())
+	object_binder.load(self, reader)
+	-- Logic:
+	local npc_id = self.object:id()
+	local st = xr_motivator.storage[npc_id]
+	
+	local active_section = reader:r_stringZ()
+	if active_section == "" then
+		active_section = nil
+	end
+
+	local active_scheme = reader:r_stringZ()
+	if active_scheme == "" then
+		active_scheme = nil
+	end
+	
+	local gulag_name = reader:r_stringZ()
+	if gulag_name == "" then
+		gulag_name = nil
+	end
+	
+	local stype = reader:r_s32()
+	
+	local ini = st[active_scheme].ini
+
+	st.gulag_name = if_then_else(gulag_name, gulag_name, "")
+	st.stype = stype
+	st.active_section = nil
+	st.active_scheme = nil
+
+	printf("motivator_binder:load(): activating script by section '%s'", active_section)
+	xr_logic.activate_by_section(self.object, ini, active_section)
+end
+----------------------------------------------------------------------------------------------------------------------
+function pda_callback(recepient, who, msg_type)
+    recepient:answer_pda ()
+end
+----------------------------------------------------------------------------------------------------------------------
+function hear_callback(self, who, sound_type, sound_position, sound_power)
+	function relation(object, victim)
+		if object:relation(victim) == game_object.enemy then
+			return "enemy"
+		end
+		if object:relation(victim) == game_object.friend then
+			return "friend"
+		end
+		if object:relation(victim) == game_object.neutral then
+			return "neutral"
+		end
+		return "none"
+	end
+	
+--	if who:id() ~= self:id() and relation( self, who ) == "enemy" then
+--		printf("SOUNDCHECK %s to %s [%s], %f, dist: %d m.", self:name(), who:name(), relation(self, who), sound_power, self:position():distance_to(who:position()))
+--	end
+end
+----------------------------------------------------------------------------------------------------------------------
+function AddToMotivator(npc)
+    npc:bind_object(this.motivator_binder(npc))
+end
+----------------------------------------------------------------------------------------------------------------------
+function addCommonPrecondition(action)
+	action:add_precondition (world_property(xr_evaluators_id.reaction,			false))
+	action:add_precondition (world_property(xr_evaluators_id.assistance + 1,	false))
+	action:add_precondition (world_property(xr_evaluators_id.stohe_meet_base + 1,false))
+	action:add_precondition (world_property(xr_evaluators_id.sidor_wounded_base + 1,  false))
+	action:add_precondition (world_property(xr_evaluators_id.chugai_heli_hunter_base, false))		
+end
+----------------------------------------------------------------------------------------------------------------------
