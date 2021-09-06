@@ -1,2 +1,4 @@
 # xray-2212
-Fixed source code of S.T.A.L.K.E.R.: Shadow of Chernobyl build 2212
+Пофикшенные сорцы билда 2212
+
+Для сборки нужна Visual Studio .NET 2003
